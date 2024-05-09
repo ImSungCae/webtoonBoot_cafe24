@@ -29,9 +29,12 @@
 
 	<select id="selectOverlappedID" parameterType="String"
 		resultType="String">
+		<!--Oracle 쿼리-->
 		select decode(count(*),1, 'true', 0, 'false')
 		from t_shop_member
 		where member_id = #{id}
+	
+		
 	</select>
 
 	<insert id="insertNewMember" parameterType="memberVO">

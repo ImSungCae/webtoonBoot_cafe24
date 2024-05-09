@@ -1,5 +1,6 @@
 // 헤더바 스크롤 이벤트
 const head = document.querySelector('#head');
+const suggestList = document.getElementById('suggestList');
 
 let tabIdx = 0;
 let scrPos = { y: 0, dy: 0, state: true };
@@ -11,9 +12,13 @@ window.addEventListener('scroll', () => {
 
     if (scrPos.state) {
         head.classList.add('active');
+    	if(!suggestList.classList.contains('d-none')){
+			suggestList.classList.add('d-none');
+        }
     } else {
         head.classList.remove('active');
     }
+		
 });
 
 // 메인 슬라이드 이벤트

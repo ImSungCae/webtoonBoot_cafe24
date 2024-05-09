@@ -4,7 +4,7 @@
 	
 	
     <script>
-        $(document).ready(function () {
+//        $(document).ready(function () {
             function fn_category() {
                 if ($('#suggestList').hasClass('d-none')) {
                     $('#suggestList').removeClass('d-none');
@@ -24,7 +24,7 @@
                     $.ajax({
                         type: "get",
                         async: true,
-                        url: "${contextPath}/goods/keywordSearch.do",
+                        url: "@{/goods/keywordSearch.do}",
                         data: {
                             keyword: value
                         },
@@ -81,7 +81,7 @@
                     element.classList.add('d-none');
                 }
             }
-        });
+      //  });
     </script>
 
     <div id="head_link">

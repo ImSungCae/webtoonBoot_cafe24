@@ -18,7 +18,7 @@ public class FileDownloadController {
 	
 //	로컬용
 	private static final String CURR_IMAGE_REPO_PATH = "C:/webtoonfriends_repo/file_repo";
-//	배포용
+//	배포용(아직 미적용)
 //	private static final String CURR_IMAGE_REPO_PATH = "/webtoonfriends_repo/file_repo";
 	@RequestMapping("/download.do")
 	protected void download(@RequestParam("fileName") String fileName,
