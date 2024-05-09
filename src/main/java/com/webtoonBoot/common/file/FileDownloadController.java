@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.OutputStream;
 import java.net.URLEncoder;
+import java.util.Base64.Decoder;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,8 +16,10 @@ import net.coobird.thumbnailator.Thumbnails;
 @Controller
 public class FileDownloadController {
 	
-	private static final String CURR_IMAGE_REPO_PATH = "/home/ec2-user/springBoot/webtoonfriends_repo/file_repo";
-	
+//	로컬용
+	private static final String CURR_IMAGE_REPO_PATH = "C:/webtoonfriends_repo/file_repo";
+//	배포용
+//	private static final String CURR_IMAGE_REPO_PATH = "/webtoonfriends_repo/file_repo";
 	@RequestMapping("/download.do")
 	protected void download(@RequestParam("fileName") String fileName,
 		                 	@RequestParam("goods_id") String goods_id,
@@ -47,7 +50,6 @@ public class FileDownloadController {
 		OutputStream out = response.getOutputStream();
 		String filePath=CURR_IMAGE_REPO_PATH+"/"+goods_id+"/"+fileName;
 		File image=new File(filePath);
-		
 		if (image.exists()) { 
 			Thumbnails.of(image).size(235,235).outputFormat("png").toOutputStream(out);
 		}

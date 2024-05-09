@@ -8,13 +8,10 @@
 		<result property="goods_id" column="goods_id" />
 		<result property="goods_sort" column="goods_sort" />
 		<result property="goods_title" column="goods_title" />
-		<result property="goods_writer_intro"
-			column="goods_writer_intro" />
+		<result property="goods_writer_intro" column="goods_writer_intro" />
 		<result property="goods_price" column="goods_price" />
-		<result property="goods_delivery_price"
-			column="goods_delivery_price" />
-		<result property="goods_delivery_date"
-			column="goods_delivery_date" />
+		<result property="goods_delivery_price" column="goods_delivery_price" />
+		<result property="goods_delivery_date" column="goods_delivery_date" />
 		<result property="goods_fileName" column="fileName" />
 		<result property="goods_status" column="goods_status" />
 		<result property="goods_creDate" column="goods_creDate" />
@@ -69,7 +66,7 @@
 	    <![CDATA[
         select goods_title from t_shop_goods 
         where         
-        goods_title like '%'|| #{keyword} || '%'
+        goods_title like concat('%', #{keyword}, '%')
         order by goods_creDate desc
 		]]>
 	</select>
@@ -83,7 +80,7 @@
 				select g.*,d.fileName from t_shop_goods g, t_goods_image d
 		    where g.goods_id=d.goods_id
 		    and d.filetype='main_image'
-		    and g.goods_title like '%'|| #{searchWord} || '%'
+		    and g.goods_title like concat('%', #{searchWord}, '%')
 		    order by g.goods_credate desc
 		]]>
 	</select>
@@ -113,9 +110,4 @@
 				and goods_id=#{goods_id}
     	]]>
 	</select>
-
-
-
-
-
 </mapper>

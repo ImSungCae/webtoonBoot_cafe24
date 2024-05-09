@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lagn="ko" xmlns:th="http://www.thymeleaf.org" th:fragment="quickMenuFragment">
+<!--<div id="sticky">
+	<div>
+		<a
+			th:href="@{${isLogOn == true and not empty memberInfo} ? /cart/myCartList.do : /member/loginForm.do}">
+			장바구니 <span>&nbsp;&nbsp; [[${cartCount}]]</span></a>
+		<p>최근본상품</p>
+		<div>
+			<div th:if="${empty quickGoodsList}">
+				<p class="empty_list">최근 본 상품이 없습니다.</p>
+			</div>
+			<div th:unless="${empty quickGoodsList}">
+				<form name="frm_sticky">
+					<div th:each="item, itemNum : ${quickGoodsList}">
+						<a th:href="@{/goods/goodsDetail.do(goods_id=${item.goods_id})}">
+							<img
+								th:src="@{/thumbnails.do(goods_id=${item.goods_id}, fileName=${item.goods_fileName})}">
+						</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+-->
+</html>
