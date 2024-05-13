@@ -40,7 +40,7 @@ public class MemberControllerImpl extends BaseController implements MemberContro
 			session = request.getSession();
 			session.setAttribute("isLogOn", true);
 			session.setAttribute("memberInfo", memberVO);
-
+			System.out.println(session.getAttribute("isLogOn"));
 			String action = (String) session.getAttribute("action");
 			if (action != null && action.equals("/order/orderEachGoods.do")) {
 				mav.setViewName("forward:" + action);
@@ -86,6 +86,7 @@ public class MemberControllerImpl extends BaseController implements MemberContro
 		}catch(Exception e) {
 			message  = "<script>";
 		    message += " location.href='"+request.getContextPath()+"/member/memberForm.do';";
+		    message += " alert('ID가 이미 존재합니다')";
 		    message += " </script>";
 			e.printStackTrace();
 		}

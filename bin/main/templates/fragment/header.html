@@ -86,23 +86,17 @@
 
     <div id="head_link">
         <ul>
-            <li th:if="${isLogOn == true and memberInfo ne null and not #strings.isEmpty(memberInfo)}">
-                <a th:href="@{/member/logout.do}">로그아웃</a>
-            </li>
-            <li th:if="${isLogOn == true and memberInfo ne null and not #strings.isEmpty(memberInfo)}">
-                <a th:href="@{/mypage/listMyOrderHistory.do}">마이페이지</a>
-            </li>
-            <li th:if="${isLogOn == true and memberInfo ne null and not #strings.isEmpty(memberInfo)}">
-                <a th:href="@{/cart/myCartList.do}">장바구니</a>
-            </li>
-            <li th:unless="${isLogOn == true and memberInfo ne null and not #strings.isEmpty(memberInfo)}">
-                <a th:href="@{/member/loginForm.do}">로그인</a>
-            </li>
-            <li th:unless="${isLogOn == true and memberInfo ne null and not #strings.isEmpty(memberInfo)}">
-                <a th:href="@{/member/memberForm.do}">회원가입</a>
-            </li>
+			<th:block th:if="${isLogOn} == true and  ${not #strings.isEmpty(memberInfo)}">
+				<li><a th:href="@{/member/logout.do}">로그아웃</a></li>
+				<li><a th:href="@{/mypage/listMyOrderHistory.do}">마이페이지</a></li>
+				<li><a th:href="@{/cart/myCartList.do}">장바구니</a></li>	
+			</th:block>
+			<th:block th:unless="${isLogOn} == true and  ${not #strings.isEmpty(memberInfo)}">
+            	<li><a th:href="@{/member/loginForm.do}">로그인</a></li>
+	            <li><a th:href="@{/member/memberForm.do}">회원가입</a></li>
+			</th:block>
             <li><a href="#">고객센터</a></li>
-            <li th:if="${isLogOn == true and memberInfo ne null and memberInfo.member_id == 'admin'}">
+            <li th:if="${isLogOn} == true and ${memberInfo.member_id} == 'admin'">
                 <a th:href="@{/admin/goods/adminGoodsMain.do}">관리자</a>
             </li>
         </ul>

@@ -1,0 +1,10 @@
+[2024-05-13 16:04:00.024]  INFO 8804 --- [  restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2024-05-13 16:04:00.036]  INFO 8804 --- [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2024-05-13 16:04:00.313]  WARN 8804 --- [  restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2024-05-13 16:04:00.647]  INFO 8804 --- [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+[2024-05-13 16:04:00.662]  INFO 8804 --- [  restartedMain] o.a.c.h.Http11NioProtocol                : Starting ProtocolHandler ["http-nio-8060"]
+[2024-05-13 16:04:00.684]  INFO 8804 --- [  restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8060 (http) with context path ''
+[2024-05-13 16:04:00.691]  INFO 8804 --- [  restartedMain] c.w.WebtoonBootCafe24Application         : Started WebtoonBootCafe24Application in 2.949 seconds (process running for 3.798)
+[2024-05-13 16:04:02.684]  INFO 8804 --- [nio-8060-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2024-05-13 16:04:02.684]  INFO 8804 --- [nio-8060-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+[2024-05-13 16:04:02.685]  INFO 8804 --- [nio-8060-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 1 ms

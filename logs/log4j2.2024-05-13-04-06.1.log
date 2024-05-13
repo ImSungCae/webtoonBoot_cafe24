@@ -1,0 +1,71 @@
+[2024-05-13 16:06:02.237]  INFO 8804 --- [   File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+[2024-05-13 16:06:02.257]  INFO 8804 --- [       Thread-5] o.a.c.h.Http11NioProtocol                : Pausing ProtocolHandler ["http-nio-8060"]
+[2024-05-13 16:06:02.258]  INFO 8804 --- [       Thread-5] o.a.c.c.StandardService                  : Stopping service [Tomcat]
+[2024-05-13 16:06:02.259]  INFO 8804 --- [       Thread-5] o.a.c.c.C.[.[.[/]                        : Destroying Spring FrameworkServlet 'dispatcherServlet'
+[2024-05-13 16:06:02.261]  INFO 8804 --- [       Thread-5] o.a.c.h.Http11NioProtocol                : Stopping ProtocolHandler ["http-nio-8060"]
+[2024-05-13 16:06:02.263]  INFO 8804 --- [       Thread-5] o.a.c.h.Http11NioProtocol                : Destroying ProtocolHandler ["http-nio-8060"]
+[2024-05-13 16:06:02.266]  INFO 8804 --- [       Thread-5] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+[2024-05-13 16:06:02.268]  INFO 8804 --- [       Thread-5] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+[2024-05-13 16:06:02.271]  INFO 8804 --- [       Thread-5] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+[2024-05-13 16:06:02.356]  INFO 8804 --- [  restartedMain] c.w.WebtoonBootCafe24Application         : Starting WebtoonBootCafe24Application using Java 17.0.10 with PID 8804 (C:\Users\home\Desktop\isc\isc_new\workspace\sts-4.22_workspace\webtoonBoot_cafe24\bin\main started by home in C:\Users\home\Desktop\isc\isc_new\workspace\sts-4.22_workspace\webtoonBoot_cafe24)
+[2024-05-13 16:06:02.357]  INFO 8804 --- [  restartedMain] c.w.WebtoonBootCafe24Application         : No active profile set, falling back to 1 default profile: "default"
+[2024-05-13 16:06:02.516]  INFO 8804 --- [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2024-05-13 16:06:02.525]  INFO 8804 --- [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 0 JPA repository interfaces.
+[2024-05-13 16:06:02.547]  WARN 8804 --- [  restartedMain] o.m.s.m.ClassPathMapperScanner           : No MyBatis mapper was found in '[com.webtoonBoot]' package. Please check your configuration.
+[2024-05-13 16:06:02.583]  INFO 8804 --- [  restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8060 (http)
+[2024-05-13 16:06:02.585]  INFO 8804 --- [  restartedMain] o.a.c.h.Http11NioProtocol                : Initializing ProtocolHandler ["http-nio-8060"]
+[2024-05-13 16:06:02.585]  INFO 8804 --- [  restartedMain] o.a.c.c.StandardService                  : Starting service [Tomcat]
+[2024-05-13 16:06:02.585]  INFO 8804 --- [  restartedMain] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/10.1.19]
+[2024-05-13 16:06:02.696]  INFO 8804 --- [  restartedMain] o.a.j.s.TldScanner                       : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[2024-05-13 16:06:02.699]  INFO 8804 --- [  restartedMain] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+[2024-05-13 16:06:02.699]  INFO 8804 --- [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 341 ms
+[2024-05-13 16:06:02.707]  INFO 8804 --- [  restartedMain] c.z.h.HikariDataSource                   : HikariPool-2 - Starting...
+[2024-05-13 16:06:02.711]  INFO 8804 --- [  restartedMain] c.z.h.p.HikariPool                       : HikariPool-2 - Added connection org.mariadb.jdbc.Connection@5e362e4e
+[2024-05-13 16:06:02.715]  INFO 8804 --- [  restartedMain] c.z.h.HikariDataSource                   : HikariPool-2 - Start completed.
+[2024-05-13 16:06:02.716]  INFO 8804 --- [  restartedMain] o.s.b.a.h.H2ConsoleAutoConfiguration     : H2 console available at '/h2-console'. Database available at 'jdbc:mariadb://localhost/webtoonBoot?user=root&password=***&serverTimezone=UTC&characterEncoding=UTF-8&createDatabaseIfNotExist=true'
+[2024-05-13 16:06:02.739]  INFO 8804 --- [  restartedMain] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+[2024-05-13 16:06:02.743]  INFO 8804 --- [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+[2024-05-13 16:06:02.744]  WARN 8804 --- [  restartedMain] o.h.d.Dialect                            : HHH000511: The 10.1.0 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.3.0. Check the community dialects project for available legacy versions.
+[2024-05-13 16:06:02.751]  INFO 8804 --- [  restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2024-05-13 16:06:02.752]  INFO 8804 --- [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2024-05-13 16:06:02.864]  WARN 8804 --- [  restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2024-05-13 16:06:02.949]  INFO 8804 --- [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+[2024-05-13 16:06:02.954]  INFO 8804 --- [  restartedMain] o.a.c.h.Http11NioProtocol                : Starting ProtocolHandler ["http-nio-8060"]
+[2024-05-13 16:06:02.958]  INFO 8804 --- [  restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8060 (http) with context path ''
+[2024-05-13 16:06:02.960]  INFO 8804 --- [  restartedMain] c.w.WebtoonBootCafe24Application         : Started WebtoonBootCafe24Application in 0.642 seconds (process running for 126.068)
+[2024-05-13 16:06:02.962]  INFO 8804 --- [  restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+[2024-05-13 16:06:04.409]  INFO 8804 --- [   File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+[2024-05-13 16:06:04.426]  INFO 8804 --- [       Thread-7] o.a.c.h.Http11NioProtocol                : Pausing ProtocolHandler ["http-nio-8060"]
+[2024-05-13 16:06:04.426]  INFO 8804 --- [       Thread-7] o.a.c.c.StandardService                  : Stopping service [Tomcat]
+[2024-05-13 16:06:04.428]  INFO 8804 --- [       Thread-7] o.a.c.h.Http11NioProtocol                : Stopping ProtocolHandler ["http-nio-8060"]
+[2024-05-13 16:06:04.429]  INFO 8804 --- [       Thread-7] o.a.c.h.Http11NioProtocol                : Destroying ProtocolHandler ["http-nio-8060"]
+[2024-05-13 16:06:04.430]  INFO 8804 --- [       Thread-7] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+[2024-05-13 16:06:04.430]  INFO 8804 --- [       Thread-7] c.z.h.HikariDataSource                   : HikariPool-2 - Shutdown initiated...
+[2024-05-13 16:06:04.432]  INFO 8804 --- [       Thread-7] c.z.h.HikariDataSource                   : HikariPool-2 - Shutdown completed.
+[2024-05-13 16:06:04.509]  INFO 8804 --- [  restartedMain] c.w.WebtoonBootCafe24Application         : Starting WebtoonBootCafe24Application using Java 17.0.10 with PID 8804 (C:\Users\home\Desktop\isc\isc_new\workspace\sts-4.22_workspace\webtoonBoot_cafe24\bin\main started by home in C:\Users\home\Desktop\isc\isc_new\workspace\sts-4.22_workspace\webtoonBoot_cafe24)
+[2024-05-13 16:06:04.509]  INFO 8804 --- [  restartedMain] c.w.WebtoonBootCafe24Application         : No active profile set, falling back to 1 default profile: "default"
+[2024-05-13 16:06:04.639]  INFO 8804 --- [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2024-05-13 16:06:04.647]  INFO 8804 --- [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8 ms. Found 0 JPA repository interfaces.
+[2024-05-13 16:06:04.670]  WARN 8804 --- [  restartedMain] o.m.s.m.ClassPathMapperScanner           : No MyBatis mapper was found in '[com.webtoonBoot]' package. Please check your configuration.
+[2024-05-13 16:06:04.705]  INFO 8804 --- [  restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8060 (http)
+[2024-05-13 16:06:04.706]  INFO 8804 --- [  restartedMain] o.a.c.h.Http11NioProtocol                : Initializing ProtocolHandler ["http-nio-8060"]
+[2024-05-13 16:06:04.706]  INFO 8804 --- [  restartedMain] o.a.c.c.StandardService                  : Starting service [Tomcat]
+[2024-05-13 16:06:04.706]  INFO 8804 --- [  restartedMain] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/10.1.19]
+[2024-05-13 16:06:04.813]  INFO 8804 --- [  restartedMain] o.a.j.s.TldScanner                       : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[2024-05-13 16:06:04.815]  INFO 8804 --- [  restartedMain] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+[2024-05-13 16:06:04.816]  INFO 8804 --- [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 305 ms
+[2024-05-13 16:06:04.822]  INFO 8804 --- [  restartedMain] c.z.h.HikariDataSource                   : HikariPool-3 - Starting...
+[2024-05-13 16:06:04.827]  INFO 8804 --- [  restartedMain] c.z.h.p.HikariPool                       : HikariPool-3 - Added connection org.mariadb.jdbc.Connection@36d84221
+[2024-05-13 16:06:04.829]  INFO 8804 --- [  restartedMain] c.z.h.HikariDataSource                   : HikariPool-3 - Start completed.
+[2024-05-13 16:06:04.829]  INFO 8804 --- [  restartedMain] o.s.b.a.h.H2ConsoleAutoConfiguration     : H2 console available at '/h2-console'. Database available at 'jdbc:mariadb://localhost/webtoonBoot?user=root&password=***&serverTimezone=UTC&characterEncoding=UTF-8&createDatabaseIfNotExist=true'
+[2024-05-13 16:06:04.846]  INFO 8804 --- [  restartedMain] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+[2024-05-13 16:06:04.851]  INFO 8804 --- [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+[2024-05-13 16:06:04.852]  WARN 8804 --- [  restartedMain] o.h.d.Dialect                            : HHH000511: The 10.1.0 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.3.0. Check the community dialects project for available legacy versions.
+[2024-05-13 16:06:04.860]  INFO 8804 --- [  restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2024-05-13 16:06:04.860]  INFO 8804 --- [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2024-05-13 16:06:04.942]  WARN 8804 --- [  restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2024-05-13 16:06:05.008]  INFO 8804 --- [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+[2024-05-13 16:06:05.013]  INFO 8804 --- [  restartedMain] o.a.c.h.Http11NioProtocol                : Starting ProtocolHandler ["http-nio-8060"]
+[2024-05-13 16:06:05.016]  INFO 8804 --- [  restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8060 (http) with context path ''
+[2024-05-13 16:06:05.020]  INFO 8804 --- [  restartedMain] c.w.WebtoonBootCafe24Application         : Started WebtoonBootCafe24Application in 0.541 seconds (process running for 128.128)
+[2024-05-13 16:06:05.021]  INFO 8804 --- [  restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged

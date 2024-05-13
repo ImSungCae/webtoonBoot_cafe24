@@ -125,7 +125,7 @@
 				height="32" alt="로고 이미지"
 				src="${contextPath }/resources/image/webtoonfriends_logo.png">
 			</a>
-			<div id="search">
+			<div id="search"
 				<form name="frmSearch" action="${contextPath }/goods/searchGoods.do">
 					<input name="searchWord" class="main_input" type="text" id="searchWord"
 					onkeyup="keywordSearch()" autocomplete="off"> 

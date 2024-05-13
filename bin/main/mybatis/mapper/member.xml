@@ -30,10 +30,19 @@
 	<select id="selectOverlappedID" parameterType="String"
 		resultType="String">
 		<!--Oracle 쿼리-->
-		select decode(count(*),1, 'true', 0, 'false')
+		<!--select decode(count(*),1, 'true', 0, 'false')
 		from t_shop_member
-		where member_id = #{id}
-	
+		where member_id = #{id}-->
+		<!--MyBatis 쿼리-->
+	    SELECT
+	        CASE
+	            WHEN COUNT(*) = 1 THEN 'true'
+	            ELSE 'false'
+	        END AS existence
+	    FROM
+	        t_shop_member
+	    WHERE
+	        member_id = #{member_id}
 		
 	</select>
 
