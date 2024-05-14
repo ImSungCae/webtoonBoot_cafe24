@@ -86,19 +86,19 @@
 
     <div id="head_link">
         <ul>
-			<th:block th:if="${isLogOn} == true and  ${not #strings.isEmpty(memberInfo)}">
+			<th:block th:if="${session.isLogOn == true} and  ${not #strings.isEmpty(session.memberInfo)}">
 				<li><a th:href="@{/member/logout.do}">로그아웃</a></li>
 				<li><a th:href="@{/mypage/listMyOrderHistory.do}">마이페이지</a></li>
 				<li><a th:href="@{/cart/myCartList.do}">장바구니</a></li>	
+				<li th:if="${session.memberInfo.member_id=='admin'}">				
+					<a th:href="@{/admin/goods/adminGoodsMain.do}">관리자</a>
+				</li>
 			</th:block>
-			<th:block th:unless="${isLogOn} == true and  ${not #strings.isEmpty(memberInfo)}">
+			<th:block th:unless="${session.isLogOn == true} and  ${not #strings.isEmpty(session.memberInfo)}">
             	<li><a th:href="@{/member/loginForm.do}">로그인</a></li>
 	            <li><a th:href="@{/member/memberForm.do}">회원가입</a></li>
 			</th:block>
             <li><a href="#">고객센터</a></li>
-            <li th:if="${isLogOn} == true and ${memberInfo.member_id} == 'admin'">
-                <a th:href="@{/admin/goods/adminGoodsMain.do}">관리자</a>
-            </li>
         </ul>
     </div>
     <div id="head">
@@ -114,7 +114,7 @@
             </li>
         </ul>
         <a th:href="@{/main/main.do}">
-            <img width="202" height="32" alt="로고 이미지" th:src="@{/resources/image/webtoonfriends_logo.png}" />
+            <img width="202" height="32" alt="로고 이미지" th:src="@{/image/webtoonfriends_logo.png}" />
         </a>
         <div id="search">
             <form name="frmSearch" th:action="@{/goods/searchGoods.do}" method="post">
@@ -129,10 +129,10 @@
                 </ul>
             </div>
         </div>
-        <a th:href="@{/mypage/myDetailInfo.do}" th:unless="${isLogOn == true and memberInfo ne null and not #strings.isEmpty(memberInfo)}">
+        <a th:href="@{/mypage/myDetailInfo.do}" th:unless="${session.isLogOn == true} and  ${not #strings.isEmpty(session.memberInfo)}">
             <i class="fa-sharp fa-solid fa-user fa-xl" style="color: #00dc64;"></i>
         </a>
-        <a th:href="@{/cart/myCartList.do}" th:unless="${isLogOn == true and memberInfo ne null and not #strings.isEmpty(memberInfo)}">
+        <a th:href="@{/cart/myCartList.do}" th:unless="${session.isLogOn == true} and  ${not #strings.isEmpty(session.memberInfo)}">
             <i class="fa-sharp fa-solid fa-cart-shopping fa-xl" style="color: #00dc64;"></i>
         </a>
     </div>

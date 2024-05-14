@@ -11,21 +11,21 @@
 <body>
 	<div id="slide">
 		<ul>
-			<li><a th:href="@{/goods/menuGoods(menuGoods='화산귀환')}"><img alt="배너1"
-						th:src="@{/resources/image/main_banner_화산귀환.jpg}"></a></li>
-			<li><a th:href="@{/goods/menuGoods(menuGoods='물위의우리')}"><img alt="배너2"
-						th:src="@{/resources/image/main_banner_물위의우리.jpg}"></a></li>
-			<li><a th:href="@{/goods/menuGoods(menuGoods='언덕위의제임스')}"><img alt="배너3"
-						th:src="@{/resources/image/main_banner_언덕위의제임스.jpg}"></a></li>
-			<li><a th:href="@{/goods/menuGoods(menuGoods='바른연애길잡이')}"><img alt="배너4"
-						th:src="@{/resources/image/main_banner_바른연애길잡이.jpg}"></a></li>
+			<li><a th:href="@{/goods/menuGoods.do?menuGoods=화산귀환}"><img alt="배너1"
+						th:src="@{/image/main_banner_화산귀환.jpg}"></a></li>
+			<li><a th:href="@{/goods/menuGoods.do?menuGoods=물위의우리}"><img alt="배너2"
+						th:src="@{/image/main_banner_물위의우리.jpg}"></a></li>
+			<li><a th:href="@{/goods/menuGoods.do?menuGoods=언덕위의제임스}"><img alt="배너3"
+						th:src="@{/image/main_banner_언덕위의제임스.jpg}"></a></li>
+			<li><a th:href="@{/goods/menuGoods.do?menuGoods=바른연애길잡이}"><img alt="배너4"
+						th:src="@{/image/main_banner_바른연애길잡이.jpg}"></a></li>
 		</ul>
 
 		<a class="btn_left" data-direction="-1">
-			<img alt="왼쪽 슬라이드" th:src="@{/resources/image/arrow_back.svg}">
+			<img alt="왼쪽 슬라이드" th:src="@{/image/arrow_back.svg}">
 		</a>
 		<a class="btn_right" data-direction="1">
-			<img alt="오른쪽 슬라이드" th:src="@{/resources/image/arrow_forward.svg}">
+			<img alt="오른쪽 슬라이드" th:src="@{/image/arrow_forward.svg}">
 		</a>
 		<div class="button"></div>
 	</div>
