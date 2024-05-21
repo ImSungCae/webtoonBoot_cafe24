@@ -35,7 +35,7 @@
 	    <![CDATA[
 		  select * from t_shop_order
           where member_id=#{member_id}
-          and  to_char(pay_order_time,'yyyy-mm-dd')  between #{beginDate} and #{endDate}
+          and  DATE_FORMAT(pay_order_time,'yyyy-mm-dd')  between #{beginDate} and #{endDate}
           order by pay_order_time desc
     	]]>
 	</select>
@@ -96,7 +96,7 @@
 	<!-- 회원탈퇴 -->
 	<delete id="deleteMember" parameterType="String">
 	    <![CDATA[
-			delete t_shop_member
+			delete from t_shop_member
 			where member_id = #{member_id}
     	]]>
 	</delete>

@@ -8,7 +8,7 @@
 	<title>굿즈리스트</title>
 </head>
 <body>
-    <img class="banner" th:src="@{/image/main_banner_${menuGoods}.jpg}" />
+	<img class="banner" th:src="@{${'/image/main_banner_' + menuGoods + '.jpg'}}" />
     <h4 class="goodsCount">상품 <span th:text="(${#lists.size(goodsList)})"></span></h4>
     <div id="menuGoods">
         <th:block th:if="${#lists.isEmpty(goodsList)}">
