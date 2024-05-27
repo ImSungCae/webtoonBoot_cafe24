@@ -129,10 +129,10 @@
                 </ul>
             </div>
         </div>
-        <a th:href="@{/mypage/myDetailInfo.do}" th:unless="${session.isLogOn == true} and  ${not #strings.isEmpty(session.memberInfo)}">
+        <a th:href="${session.isLogOn} ? '/mypage/myDetailInfo.do' : '/member/loginForm.do'">
             <i class="fa-sharp fa-solid fa-user fa-xl" style="color: #00dc64;"></i>
         </a>
-        <a th:href="@{/cart/myCartList.do}" th:unless="${session.isLogOn == true} and  ${not #strings.isEmpty(session.memberInfo)}">
+        <a th:href="${session.isLogOn} ? '/cart/myCartList.do' : '/member/loginForm.do'">
             <i class="fa-sharp fa-solid fa-cart-shopping fa-xl" style="color: #00dc64;"></i>
         </a>
     </div>

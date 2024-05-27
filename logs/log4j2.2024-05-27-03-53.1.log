@@ -1,0 +1,240 @@
+[2024-05-27 15:53:04.962]  INFO 23056 --- [   File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+[2024-05-27 15:53:04.985]  INFO 23056 --- [       Thread-7] o.a.c.h.Http11NioProtocol                : Pausing ProtocolHandler ["http-nio-8060"]
+[2024-05-27 15:53:04.985]  INFO 23056 --- [       Thread-7] o.a.c.c.StandardService                  : Stopping service [Tomcat]
+[2024-05-27 15:53:04.987]  INFO 23056 --- [       Thread-7] o.a.c.h.Http11NioProtocol                : Stopping ProtocolHandler ["http-nio-8060"]
+[2024-05-27 15:53:04.987]  INFO 23056 --- [       Thread-7] o.a.c.h.Http11NioProtocol                : Destroying ProtocolHandler ["http-nio-8060"]
+[2024-05-27 15:53:04.989]  INFO 23056 --- [       Thread-7] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+[2024-05-27 15:53:04.990]  INFO 23056 --- [       Thread-7] c.z.h.HikariDataSource                   : HikariPool-2 - Shutdown initiated...
+[2024-05-27 15:53:04.992]  INFO 23056 --- [       Thread-7] c.z.h.HikariDataSource                   : HikariPool-2 - Shutdown completed.
+[2024-05-27 15:53:05.086]  INFO 23056 --- [  restartedMain] c.w.WebtoonBootCafe24Application         : Starting WebtoonBootCafe24Application using Java 17.0.10 with PID 23056 (C:\Users\home\Desktop\isc\isc_new\workspace\sts-4.22_workspace\webtoonBoot_cafe24\bin\main started by home in C:\Users\home\Desktop\isc\isc_new\workspace\sts-4.22_workspace\webtoonBoot_cafe24)
+[2024-05-27 15:53:05.086]  INFO 23056 --- [  restartedMain] c.w.WebtoonBootCafe24Application         : No active profile set, falling back to 1 default profile: "default"
+[2024-05-27 15:53:05.265]  INFO 23056 --- [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2024-05-27 15:53:05.279]  INFO 23056 --- [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 0 JPA repository interfaces.
+[2024-05-27 15:53:05.310]  WARN 23056 --- [  restartedMain] o.m.s.m.ClassPathMapperScanner           : No MyBatis mapper was found in '[com.webtoonBoot]' package. Please check your configuration.
+[2024-05-27 15:53:05.348]  INFO 23056 --- [  restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8060 (http)
+[2024-05-27 15:53:05.349]  INFO 23056 --- [  restartedMain] o.a.c.h.Http11NioProtocol                : Initializing ProtocolHandler ["http-nio-8060"]
+[2024-05-27 15:53:05.349]  INFO 23056 --- [  restartedMain] o.a.c.c.StandardService                  : Starting service [Tomcat]
+[2024-05-27 15:53:05.349]  INFO 23056 --- [  restartedMain] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/10.1.19]
+[2024-05-27 15:53:05.491]  INFO 23056 --- [  restartedMain] o.a.j.s.TldScanner                       : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[2024-05-27 15:53:05.495]  INFO 23056 --- [  restartedMain] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+[2024-05-27 15:53:05.495]  INFO 23056 --- [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 406 ms
+[2024-05-27 15:53:05.506]  INFO 23056 --- [  restartedMain] c.z.h.HikariDataSource                   : HikariPool-3 - Starting...
+[2024-05-27 15:53:05.511]  INFO 23056 --- [  restartedMain] c.z.h.p.HikariPool                       : HikariPool-3 - Added connection org.mariadb.jdbc.Connection@61f52f5c
+[2024-05-27 15:53:05.511]  INFO 23056 --- [  restartedMain] c.z.h.HikariDataSource                   : HikariPool-3 - Start completed.
+[2024-05-27 15:53:05.511]  INFO 23056 --- [  restartedMain] o.s.b.a.h.H2ConsoleAutoConfiguration     : H2 console available at '/h2-console'. Database available at 'jdbc:mariadb://localhost/webtoonBoot?user=root&password=***&serverTimezone=UTC&characterEncoding=UTF-8&createDatabaseIfNotExist=true'
+[2024-05-27 15:53:05.529]  INFO 23056 --- [  restartedMain] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+[2024-05-27 15:53:05.537]  INFO 23056 --- [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+[2024-05-27 15:53:05.538]  WARN 23056 --- [  restartedMain] o.h.d.Dialect                            : HHH000511: The 10.1.0 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.3.0. Check the community dialects project for available legacy versions.
+[2024-05-27 15:53:05.548]  INFO 23056 --- [  restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2024-05-27 15:53:05.548]  INFO 23056 --- [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2024-05-27 15:53:05.648]  WARN 23056 --- [  restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2024-05-27 15:53:05.713]  INFO 23056 --- [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+[2024-05-27 15:53:05.717]  INFO 23056 --- [  restartedMain] o.a.c.h.Http11NioProtocol                : Starting ProtocolHandler ["http-nio-8060"]
+[2024-05-27 15:53:05.723]  INFO 23056 --- [  restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8060 (http) with context path ''
+[2024-05-27 15:53:05.724]  INFO 23056 --- [  restartedMain] c.w.WebtoonBootCafe24Application         : Started WebtoonBootCafe24Application in 0.68 seconds (process running for 171.718)
+[2024-05-27 15:53:05.726]  INFO 23056 --- [  restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+[2024-05-27 15:53:37.566]  INFO 23056 --- [   File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+[2024-05-27 15:53:37.581]  INFO 23056 --- [      Thread-11] o.a.c.h.Http11NioProtocol                : Pausing ProtocolHandler ["http-nio-8060"]
+[2024-05-27 15:53:37.582]  INFO 23056 --- [      Thread-11] o.a.c.c.StandardService                  : Stopping service [Tomcat]
+[2024-05-27 15:53:37.583]  INFO 23056 --- [      Thread-11] o.a.c.h.Http11NioProtocol                : Stopping ProtocolHandler ["http-nio-8060"]
+[2024-05-27 15:53:37.583]  INFO 23056 --- [      Thread-11] o.a.c.h.Http11NioProtocol                : Destroying ProtocolHandler ["http-nio-8060"]
+[2024-05-27 15:53:37.585]  INFO 23056 --- [      Thread-11] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+[2024-05-27 15:53:37.585]  INFO 23056 --- [      Thread-11] c.z.h.HikariDataSource                   : HikariPool-3 - Shutdown initiated...
+[2024-05-27 15:53:37.585]  INFO 23056 --- [      Thread-11] c.z.h.HikariDataSource                   : HikariPool-3 - Shutdown completed.
+[2024-05-27 15:53:37.648]  INFO 23056 --- [  restartedMain] c.w.WebtoonBootCafe24Application         : Starting WebtoonBootCafe24Application using Java 17.0.10 with PID 23056 (C:\Users\home\Desktop\isc\isc_new\workspace\sts-4.22_workspace\webtoonBoot_cafe24\bin\main started by home in C:\Users\home\Desktop\isc\isc_new\workspace\sts-4.22_workspace\webtoonBoot_cafe24)
+[2024-05-27 15:53:37.649]  INFO 23056 --- [  restartedMain] c.w.WebtoonBootCafe24Application         : No active profile set, falling back to 1 default profile: "default"
+[2024-05-27 15:53:37.788]  INFO 23056 --- [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2024-05-27 15:53:37.799]  INFO 23056 --- [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 0 JPA repository interfaces.
+[2024-05-27 15:53:37.820]  WARN 23056 --- [  restartedMain] o.m.s.m.ClassPathMapperScanner           : No MyBatis mapper was found in '[com.webtoonBoot]' package. Please check your configuration.
+[2024-05-27 15:53:37.851]  INFO 23056 --- [  restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8060 (http)
+[2024-05-27 15:53:37.852]  INFO 23056 --- [  restartedMain] o.a.c.h.Http11NioProtocol                : Initializing ProtocolHandler ["http-nio-8060"]
+[2024-05-27 15:53:37.852]  INFO 23056 --- [  restartedMain] o.a.c.c.StandardService                  : Starting service [Tomcat]
+[2024-05-27 15:53:37.852]  INFO 23056 --- [  restartedMain] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/10.1.19]
+[2024-05-27 15:53:37.974]  INFO 23056 --- [  restartedMain] o.a.j.s.TldScanner                       : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[2024-05-27 15:53:37.977]  INFO 23056 --- [  restartedMain] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+[2024-05-27 15:53:37.977]  INFO 23056 --- [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 327 ms
+[2024-05-27 15:53:37.986]  INFO 23056 --- [  restartedMain] c.z.h.HikariDataSource                   : HikariPool-4 - Starting...
+[2024-05-27 15:53:37.990]  INFO 23056 --- [  restartedMain] c.z.h.p.HikariPool                       : HikariPool-4 - Added connection org.mariadb.jdbc.Connection@34a5020c
+[2024-05-27 15:53:37.990]  INFO 23056 --- [  restartedMain] c.z.h.HikariDataSource                   : HikariPool-4 - Start completed.
+[2024-05-27 15:53:37.990]  INFO 23056 --- [  restartedMain] o.s.b.a.h.H2ConsoleAutoConfiguration     : H2 console available at '/h2-console'. Database available at 'jdbc:mariadb://localhost/webtoonBoot?user=root&password=***&serverTimezone=UTC&characterEncoding=UTF-8&createDatabaseIfNotExist=true'
+[2024-05-27 15:53:38.005]  INFO 23056 --- [  restartedMain] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+[2024-05-27 15:53:38.010]  INFO 23056 --- [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+[2024-05-27 15:53:38.011]  WARN 23056 --- [  restartedMain] o.h.d.Dialect                            : HHH000511: The 10.1.0 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.3.0. Check the community dialects project for available legacy versions.
+[2024-05-27 15:53:38.018]  INFO 23056 --- [  restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2024-05-27 15:53:38.018]  INFO 23056 --- [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2024-05-27 15:53:38.103]  WARN 23056 --- [  restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2024-05-27 15:53:38.168]  INFO 23056 --- [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+[2024-05-27 15:53:38.173]  INFO 23056 --- [  restartedMain] o.a.c.h.Http11NioProtocol                : Starting ProtocolHandler ["http-nio-8060"]
+[2024-05-27 15:53:38.177]  INFO 23056 --- [  restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8060 (http) with context path ''
+[2024-05-27 15:53:38.180]  INFO 23056 --- [  restartedMain] c.w.WebtoonBootCafe24Application         : Started WebtoonBootCafe24Application in 0.562 seconds (process running for 204.173)
+[2024-05-27 15:53:38.181]  INFO 23056 --- [  restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+[2024-05-27 15:53:40.282]  INFO 23056 --- [n(20)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+[2024-05-27 15:53:40.299]  INFO 23056 --- [n(20)-127.0.0.1] o.a.c.h.Http11NioProtocol                : Pausing ProtocolHandler ["http-nio-8060"]
+[2024-05-27 15:53:40.299]  INFO 23056 --- [n(20)-127.0.0.1] o.a.c.c.StandardService                  : Stopping service [Tomcat]
+[2024-05-27 15:53:40.300]  INFO 23056 --- [n(20)-127.0.0.1] o.a.c.h.Http11NioProtocol                : Stopping ProtocolHandler ["http-nio-8060"]
+[2024-05-27 15:53:40.301]  INFO 23056 --- [n(20)-127.0.0.1] o.a.c.h.Http11NioProtocol                : Destroying ProtocolHandler ["http-nio-8060"]
+[2024-05-27 15:53:40.302]  INFO 23056 --- [n(20)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+[2024-05-27 15:53:40.302]  INFO 23056 --- [n(20)-127.0.0.1] c.z.h.HikariDataSource                   : HikariPool-4 - Shutdown initiated...
+[2024-05-27 15:53:40.305]  INFO 23056 --- [n(20)-127.0.0.1] c.z.h.HikariDataSource                   : HikariPool-4 - Shutdown completed.
+[2024-05-27 15:53:42.064]  INFO 23220 --- [  restartedMain] c.w.WebtoonBootCafe24Application         : Starting WebtoonBootCafe24Application using Java 17.0.10 with PID 23220 (C:\Users\home\Desktop\isc\isc_new\workspace\sts-4.22_workspace\webtoonBoot_cafe24\bin\main started by home in C:\Users\home\Desktop\isc\isc_new\workspace\sts-4.22_workspace\webtoonBoot_cafe24)
+[2024-05-27 15:53:42.070]  INFO 23220 --- [  restartedMain] c.w.WebtoonBootCafe24Application         : No active profile set, falling back to 1 default profile: "default"
+[2024-05-27 15:53:42.223]  INFO 23220 --- [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[2024-05-27 15:53:42.223]  INFO 23220 --- [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[2024-05-27 15:53:42.714]  INFO 23220 --- [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2024-05-27 15:53:42.736]  INFO 23220 --- [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 17 ms. Found 0 JPA repository interfaces.
+[2024-05-27 15:53:42.817]  WARN 23220 --- [  restartedMain] o.m.s.m.ClassPathMapperScanner           : No MyBatis mapper was found in '[com.webtoonBoot]' package. Please check your configuration.
+[2024-05-27 15:53:43.175]  INFO 23220 --- [  restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8060 (http)
+[2024-05-27 15:53:43.184]  INFO 23220 --- [  restartedMain] o.a.c.h.Http11NioProtocol                : Initializing ProtocolHandler ["http-nio-8060"]
+[2024-05-27 15:53:43.185]  INFO 23220 --- [  restartedMain] o.a.c.c.StandardService                  : Starting service [Tomcat]
+[2024-05-27 15:53:43.185]  INFO 23220 --- [  restartedMain] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/10.1.19]
+[2024-05-27 15:53:43.398]  INFO 23220 --- [  restartedMain] o.a.j.s.TldScanner                       : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[2024-05-27 15:53:43.406]  INFO 23220 --- [  restartedMain] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+[2024-05-27 15:53:43.406]  INFO 23220 --- [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1182 ms
+[2024-05-27 15:53:43.429]  INFO 23220 --- [  restartedMain] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+[2024-05-27 15:53:43.488]  INFO 23220 --- [  restartedMain] c.z.h.p.HikariPool                       : HikariPool-1 - Added connection org.mariadb.jdbc.Connection@72f7a97
+[2024-05-27 15:53:43.490]  INFO 23220 --- [  restartedMain] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+[2024-05-27 15:53:43.498]  INFO 23220 --- [  restartedMain] o.s.b.a.h.H2ConsoleAutoConfiguration     : H2 console available at '/h2-console'. Database available at 'jdbc:mariadb://localhost/webtoonBoot?user=root&password=***&serverTimezone=UTC&characterEncoding=UTF-8&createDatabaseIfNotExist=true'
+[2024-05-27 15:53:43.586]  INFO 23220 --- [  restartedMain] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+[2024-05-27 15:53:43.629]  INFO 23220 --- [  restartedMain] o.h.Version                              : HHH000412: Hibernate ORM core version 6.2.22.Final
+[2024-05-27 15:53:43.631]  INFO 23220 --- [  restartedMain] o.h.c.Environment                        : HHH000406: Using bytecode reflection optimizer
+[2024-05-27 15:53:43.840]  INFO 23220 --- [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+[2024-05-27 15:53:43.886]  WARN 23220 --- [  restartedMain] o.h.d.Dialect                            : HHH000511: The 10.1.0 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.3.0. Check the community dialects project for available legacy versions.
+[2024-05-27 15:53:44.108]  INFO 23220 --- [  restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2024-05-27 15:53:44.113]  INFO 23220 --- [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2024-05-27 15:53:44.372]  WARN 23220 --- [  restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2024-05-27 15:53:44.681]  INFO 23220 --- [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+[2024-05-27 15:53:44.694]  INFO 23220 --- [  restartedMain] o.a.c.h.Http11NioProtocol                : Starting ProtocolHandler ["http-nio-8060"]
+[2024-05-27 15:53:44.718]  INFO 23220 --- [  restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8060 (http) with context path ''
+[2024-05-27 15:53:44.724]  INFO 23220 --- [  restartedMain] c.w.WebtoonBootCafe24Application         : Started WebtoonBootCafe24Application in 2.905 seconds (process running for 3.78)
+[2024-05-27 15:53:47.191]  INFO 23220 --- [nio-8060-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2024-05-27 15:53:47.191]  INFO 23220 --- [nio-8060-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+[2024-05-27 15:53:47.192]  INFO 23220 --- [nio-8060-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 1 ms
+[2024-05-27 15:53:52.647]  WARN 23220 --- [nio-8060-exec-9] o.m.j.m.s.ErrorPacket                    : Error: 1064-42000: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'FROM t_shop_cart
+    		WHERE goods_id=5
+    			and member_id='123'' at line 3
+[2024-05-27 15:53:52.678] ERROR 23220 --- [nio-8060-exec-9] o.a.c.c.C.[.[.[.[dispatcherServlet]      : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.jdbc.BadSqlGrammarException: 
+### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: (conn=1400) You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'FROM t_shop_cart
+    		WHERE goods_id=5
+    			and member_id='123'' at line 3
+### The error may exist in file [C:\Users\home\Desktop\isc\isc_new\workspace\sts-4.22_workspace\webtoonBoot_cafe24\bin\main\mybatis\mapper\cart.xml]
+### The error may involve mapper.cart.selectCountInCart-Inline
+### The error occurred while setting parameters
+### SQL: SELECT       CASE        WHEN COUNT(*) = 0 THEN 'false'        ELSE 'true'        FROM t_shop_cart       WHERE goods_id=?        and member_id=?
+### Cause: java.sql.SQLSyntaxErrorException: (conn=1400) You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'FROM t_shop_cart
+    		WHERE goods_id=5
+    			and member_id='123'' at line 3
+; bad SQL grammar []] with root cause
+
+java.sql.SQLSyntaxErrorException: (conn=1400) You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'FROM t_shop_cart
+    		WHERE goods_id=5
+    			and member_id='123'' at line 3
+	at org.mariadb.jdbc.export.ExceptionFactory.createException(ExceptionFactory.java:282) ~[mariadb-java-client-3.1.4.jar:?]
+	at org.mariadb.jdbc.export.ExceptionFactory.create(ExceptionFactory.java:370) ~[mariadb-java-client-3.1.4.jar:?]
+	at org.mariadb.jdbc.message.ClientMessage.readPacket(ClientMessage.java:134) ~[mariadb-java-client-3.1.4.jar:?]
+	at org.mariadb.jdbc.client.impl.StandardClient.readPacket(StandardClient.java:872) ~[mariadb-java-client-3.1.4.jar:?]
+	at org.mariadb.jdbc.client.impl.StandardClient.readResults(StandardClient.java:811) ~[mariadb-java-client-3.1.4.jar:?]
+	at org.mariadb.jdbc.client.impl.StandardClient.readResponse(StandardClient.java:730) ~[mariadb-java-client-3.1.4.jar:?]
+	at org.mariadb.jdbc.client.impl.StandardClient.execute(StandardClient.java:654) ~[mariadb-java-client-3.1.4.jar:?]
+	at org.mariadb.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:95) ~[mariadb-java-client-3.1.4.jar:?]
+	at org.mariadb.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:268) ~[mariadb-java-client-3.1.4.jar:?]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java) ~[HikariCP-5.0.1.jar:?]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:65) ~[mybatis-3.5.14.jar:3.5.14]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:80) ~[mybatis-3.5.14.jar:3.5.14]
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:65) ~[mybatis-3.5.14.jar:3.5.14]
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:336) ~[mybatis-3.5.14.jar:3.5.14]
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:158) ~[mybatis-3.5.14.jar:3.5.14]
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:110) ~[mybatis-3.5.14.jar:3.5.14]
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:90) ~[mybatis-3.5.14.jar:3.5.14]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:154) ~[mybatis-3.5.14.jar:3.5.14]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:147) ~[mybatis-3.5.14.jar:3.5.14]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:142) ~[mybatis-3.5.14.jar:3.5.14]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectOne(DefaultSqlSession.java:75) ~[mybatis-3.5.14.jar:3.5.14]
+	at jdk.internal.reflect.GeneratedMethodAccessor63.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:568) ~[?:?]
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:425) ~[mybatis-spring-3.0.3.jar:3.0.3]
+	at jdk.proxy2.$Proxy100.selectOne(Unknown Source) ~[?:?]
+	at org.mybatis.spring.SqlSessionTemplate.selectOne(SqlSessionTemplate.java:160) ~[mybatis-spring-3.0.3.jar:3.0.3]
+	at com.webtoonBoot.cart.dao.CartDAOImpl.selectCountInCart(CartDAOImpl.java:33) ~[main/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:568) ~[?:?]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:343) ~[spring-aop-6.0.18.jar:6.0.18]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196) ~[spring-aop-6.0.18.jar:6.0.18]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-6.0.18.jar:6.0.18]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:751) ~[spring-aop-6.0.18.jar:6.0.18]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137) ~[spring-tx-6.0.18.jar:6.0.18]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.0.18.jar:6.0.18]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:751) ~[spring-aop-6.0.18.jar:6.0.18]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:703) ~[spring-aop-6.0.18.jar:6.0.18]
+	at com.webtoonBoot.cart.dao.CartDAOImpl$$SpringCGLIB$$0.selectCountInCart(<generated>) ~[main/:?]
+	at com.webtoonBoot.cart.service.CartServiceImpl.findCartGoods(CartServiceImpl.java:43) ~[main/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:568) ~[?:?]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:343) ~[spring-aop-6.0.18.jar:6.0.18]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196) ~[spring-aop-6.0.18.jar:6.0.18]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-6.0.18.jar:6.0.18]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:751) ~[spring-aop-6.0.18.jar:6.0.18]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123) ~[spring-tx-6.0.18.jar:6.0.18]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:391) ~[spring-tx-6.0.18.jar:6.0.18]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.0.18.jar:6.0.18]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.0.18.jar:6.0.18]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:751) ~[spring-aop-6.0.18.jar:6.0.18]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:703) ~[spring-aop-6.0.18.jar:6.0.18]
+	at com.webtoonBoot.cart.service.CartServiceImpl$$SpringCGLIB$$0.findCartGoods(<generated>) ~[main/:?]
+	at com.webtoonBoot.cart.controller.CartControllerImpl.addGoodsInCart(CartControllerImpl.java:65) ~[main/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:568) ~[?:?]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-6.0.18.jar:6.0.18]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-6.0.18.jar:6.0.18]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.0.18.jar:6.0.18]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:892) ~[spring-webmvc-6.0.18.jar:6.0.18]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:798) ~[spring-webmvc-6.0.18.jar:6.0.18]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.0.18.jar:6.0.18]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1081) ~[spring-webmvc-6.0.18.jar:6.0.18]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:974) ~[spring-webmvc-6.0.18.jar:6.0.18]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.0.18.jar:6.0.18]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.0.18.jar:6.0.18]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:547) ~[jakarta.servlet-api-6.0.0.jar:6.0.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.0.18.jar:6.0.18]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:614) ~[jakarta.servlet-api-6.0.0.jar:6.0.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.0.18.jar:6.0.18]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.18.jar:6.0.18]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.0.18.jar:6.0.18]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.18.jar:6.0.18]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.0.18.jar:6.0.18]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.18.jar:6.0.18]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) [tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) [tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) [tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) [tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) [tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) [tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) [tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391) [tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) [tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) [tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744) [tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) [tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) [tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) [tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) [tomcat-embed-core-10.1.19.jar:10.1.19]
+	at java.lang.Thread.run(Thread.java:840) [?:?]
+

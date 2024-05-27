@@ -1,0 +1,8 @@
+[2024-05-27 14:08:59.578]  INFO 19444 --- [on(9)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+[2024-05-27 14:08:59.599]  INFO 19444 --- [on(9)-127.0.0.1] o.a.c.h.Http11NioProtocol                : Pausing ProtocolHandler ["http-nio-8060"]
+[2024-05-27 14:08:59.600]  INFO 19444 --- [on(9)-127.0.0.1] o.a.c.c.StandardService                  : Stopping service [Tomcat]
+[2024-05-27 14:08:59.601]  INFO 19444 --- [on(9)-127.0.0.1] o.a.c.c.C.[.[.[/]                        : Destroying Spring FrameworkServlet 'dispatcherServlet'
+[2024-05-27 14:08:59.604]  INFO 19444 --- [on(9)-127.0.0.1] o.a.c.h.Http11NioProtocol                : Stopping ProtocolHandler ["http-nio-8060"]
+[2024-05-27 14:08:59.609]  INFO 19444 --- [on(9)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+[2024-05-27 14:08:59.611]  INFO 19444 --- [on(9)-127.0.0.1] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+[2024-05-27 14:08:59.615]  INFO 19444 --- [on(9)-127.0.0.1] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.

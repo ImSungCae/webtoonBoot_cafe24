@@ -3,14 +3,15 @@
 <div id="sticky">
 	<div>
 		<a
-			th:href="@{${session.isLogOn == true} and ${not #strings.isEmpty(session.memberInfo)} ? /cart/myCartList.do : /member/loginForm.do}">
-			장바구니 <span>&nbsp;&nbsp; [[${cartCount}]]</span></a>
+			th:href="${session.isLogOn} ? '/cart/myCartList.do' : '/member/loginForm.do'">
+			장바구니&nbsp;&nbsp;<span th:if="@{${session.isLogOn == true} and ${not #strings.isEmpty(session.memberInfo)}}" 
+					th:text="${session.cartCount}"></span></a>
 		<p>최근본상품</p>
 		<div>
-			<div th:if="${#strings.isEmpty(session.memberInfo)}">
+			<div th:if="${#lists.isEmpty(session.quickGoodsList)}">
 				<p class="empty_list">최근 본 상품이 없습니다.</p>
 			</div>
-			<div th:unless="${#strings.isEmpty(session.memberInfo)}">
+			<div th:unless="${#lists.isEmpty(session.quickGoodsList)}">
 				<form name="frm_sticky">
 					<div th:each="item, itemNum : ${session.quickGoodsList}">
 						<a th:href="@{/goods/goodsDetail.do(goods_id=${item.goods_id})}">

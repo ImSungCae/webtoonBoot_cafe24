@@ -34,7 +34,7 @@
 		<h2>인기 굿즈</h2>
 		<div class="best_goods_list goods_box_list">
 			<div th:each="item : ${goodsMap.bestgoods}">
-				<a th:href="@{/goods/goodsDetail(goods_id=${item.goods_id})}">
+				<a th:href="@{/goods/goodsDetail.do(goods_id=${item.goods_id})}">
 					<img
 						th:src="@{/thumbnails.do(goods_id=${item.goods_id}, fileName=${item.goods_fileName})}">
 					<p th:text="${item.goods_title}"></p>
@@ -49,7 +49,7 @@
 		<h2>신규 굿즈</h2>
 		<div class="new_goods_list goods_box_list">
 			<div th:each="item : ${goodsMap.newgoods}" th:count="i" th:unless="${i > 3}">
-				<a th:href="@{/goods/goodsDetail(goods_id=${item.goods_id})}">
+				<a th:href="@{/goods/goodsDetail.do(goods_id=${item.goods_id})}">
 					<img
 						th:src="@{/thumbnails.do(goods_id=${item.goods_id}, fileName=${item.goods_fileName})}">
 					<p th:text="${item.goods_title}"></p>

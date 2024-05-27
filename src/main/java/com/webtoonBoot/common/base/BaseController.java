@@ -7,6 +7,7 @@ import java.util.Calendar;
 import java.util.Iterator;
 import java.util.List;
 
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
@@ -29,6 +30,13 @@ public class BaseController {
 		ModelAndView mav = new ModelAndView(viewName);
 		return mav;
 	}
+	
+//	"/main/main.do" 안붙힐시 리다이렉트
+	@GetMapping("/")
+	protected String mainRed() {
+		return "redirect:main/main.do";
+	}
+	
 
 	protected String calcSearchPeriod(String fixedSearchPeriod) {
 		String beginDate = null;

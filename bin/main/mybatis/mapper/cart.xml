@@ -71,17 +71,25 @@
 	<!-- 상품존재여부를 확인해 false, true로 반환한다. -->
 	<select id="selectCountInCart" resultType="String"
 		parameterType="cartVO">
+	    <!-- Oracle 쿼리
 	    <![CDATA[
 		    select decode(count(*), 0, 'false', 'true') from t_shop_cart
 			where goods_id=#{goods_id}
 			  and member_id=#{member_id} 
-    	]]>
+    	]]>-->
+    	<!--MariaDB 쿼리-->
+    	SELECT IF(COUNT(*) = 0, 'false', 'true') 
+			FROM t_shop_cart 
+			WHERE goods_id = #{goods_id} 
+			  AND member_id = #{member_id};
+
 	</select>
 
 	<!-- cart번호를 부여하기 위한 과정, 카트번호 최댓값에서 +1해 부여한다. -->
 	<select id="selectMaxCartId" resultType="int">
+		<!--Oracle의 nvl를 MariaDB의 IFNULL로 대체-->
 	    <![CDATA[
-			select nvl(max(cart_id), 0) + 1 from t_shop_cart 
+			select IFNULL(max(cart_id), 0) + 1 from t_shop_cart 
     	]]>
 	</select>
 	<!-- 장바구니 추가 -->

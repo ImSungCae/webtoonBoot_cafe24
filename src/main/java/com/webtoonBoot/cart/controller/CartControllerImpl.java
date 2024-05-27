@@ -63,7 +63,6 @@ public class CartControllerImpl extends BaseController implements CartController
 		cartVO.setGoods_id(goods_id);
 		cartVO.setCart_goods_qty(cart_goods_qty);
 		boolean isAreadyExisted=cartService.findCartGoods(cartVO);
-		
 		//중복될경우 already_existed return, 외의 경우 add_success return
 		if(isAreadyExisted==true){return "already_existed";}
 		else{cartService.addGoodsInCart(cartVO);return "add_success";}

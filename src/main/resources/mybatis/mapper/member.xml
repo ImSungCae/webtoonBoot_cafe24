@@ -33,7 +33,7 @@
 		<!--select decode(count(*),1, 'true', 0, 'false')
 		from t_shop_member
 		where member_id = #{id}-->
-		<!--MyBatis 쿼리-->
+		<!--MariaDB 쿼리-->
 	    SELECT
 	        CASE
 	            WHEN COUNT(*) = 1 THEN 'true'

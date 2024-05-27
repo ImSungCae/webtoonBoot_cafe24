@@ -71,18 +71,20 @@ li {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	padding: 10px;
 }
 
 #sticky>div form a {
 	box-sizing: border-box;
-	width: 112px;
-	padding: 8px;
-	height: 112px;
+	width: 100%;
+	height: 100%;
+	
 }
 
 #sticky>div form img {
 	width: 100%;
 	height: 100%;
+	margin: 10px 0 10px 0;
 }
 
 #sticky .empty_list {

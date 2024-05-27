@@ -1,0 +1,39 @@
+[2024-05-27 13:56:23.845]  INFO 20468 --- [   File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+[2024-05-27 13:56:23.864]  INFO 20468 --- [      Thread-26] o.a.c.h.Http11NioProtocol                : Pausing ProtocolHandler ["http-nio-8060"]
+[2024-05-27 13:56:23.864]  INFO 20468 --- [      Thread-26] o.a.c.c.StandardService                  : Stopping service [Tomcat]
+[2024-05-27 13:56:23.865]  INFO 20468 --- [      Thread-26] o.a.c.c.C.[.[.[/]                        : Destroying Spring FrameworkServlet 'dispatcherServlet'
+[2024-05-27 13:56:23.866]  INFO 20468 --- [      Thread-26] o.a.c.h.Http11NioProtocol                : Stopping ProtocolHandler ["http-nio-8060"]
+[2024-05-27 13:56:23.869]  INFO 20468 --- [      Thread-26] o.a.c.h.Http11NioProtocol                : Destroying ProtocolHandler ["http-nio-8060"]
+[2024-05-27 13:56:23.870]  INFO 20468 --- [      Thread-26] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+[2024-05-27 13:56:23.870]  INFO 20468 --- [      Thread-26] c.z.h.HikariDataSource                   : HikariPool-7 - Shutdown initiated...
+[2024-05-27 13:56:23.870]  INFO 20468 --- [      Thread-26] c.z.h.HikariDataSource                   : HikariPool-7 - Shutdown completed.
+[2024-05-27 13:56:23.947]  INFO 20468 --- [  restartedMain] c.w.WebtoonBootCafe24Application         : Starting WebtoonBootCafe24Application using Java 17.0.10 with PID 20468 (C:\Users\home\Desktop\isc\isc_new\workspace\sts-4.22_workspace\webtoonBoot_cafe24\bin\main started by home in C:\Users\home\Desktop\isc\isc_new\workspace\sts-4.22_workspace\webtoonBoot_cafe24)
+[2024-05-27 13:56:23.947]  INFO 20468 --- [  restartedMain] c.w.WebtoonBootCafe24Application         : No active profile set, falling back to 1 default profile: "default"
+[2024-05-27 13:56:24.095]  INFO 20468 --- [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2024-05-27 13:56:24.106]  INFO 20468 --- [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10 ms. Found 0 JPA repository interfaces.
+[2024-05-27 13:56:24.130]  WARN 20468 --- [  restartedMain] o.m.s.m.ClassPathMapperScanner           : No MyBatis mapper was found in '[com.webtoonBoot]' package. Please check your configuration.
+[2024-05-27 13:56:24.161]  INFO 20468 --- [  restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8060 (http)
+[2024-05-27 13:56:24.161]  INFO 20468 --- [  restartedMain] o.a.c.h.Http11NioProtocol                : Initializing ProtocolHandler ["http-nio-8060"]
+[2024-05-27 13:56:24.161]  INFO 20468 --- [  restartedMain] o.a.c.c.StandardService                  : Starting service [Tomcat]
+[2024-05-27 13:56:24.162]  INFO 20468 --- [  restartedMain] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/10.1.19]
+[2024-05-27 13:56:24.283]  INFO 20468 --- [  restartedMain] o.a.j.s.TldScanner                       : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[2024-05-27 13:56:24.285]  INFO 20468 --- [  restartedMain] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+[2024-05-27 13:56:24.285]  INFO 20468 --- [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 337 ms
+[2024-05-27 13:56:24.291]  INFO 20468 --- [  restartedMain] c.z.h.HikariDataSource                   : HikariPool-8 - Starting...
+[2024-05-27 13:56:24.294]  INFO 20468 --- [  restartedMain] c.z.h.p.HikariPool                       : HikariPool-8 - Added connection org.mariadb.jdbc.Connection@678b1172
+[2024-05-27 13:56:24.294]  INFO 20468 --- [  restartedMain] c.z.h.HikariDataSource                   : HikariPool-8 - Start completed.
+[2024-05-27 13:56:24.294]  INFO 20468 --- [  restartedMain] o.s.b.a.h.H2ConsoleAutoConfiguration     : H2 console available at '/h2-console'. Database available at 'jdbc:mariadb://localhost/webtoonBoot?user=root&password=***&serverTimezone=UTC&characterEncoding=UTF-8&createDatabaseIfNotExist=true'
+[2024-05-27 13:56:24.315]  INFO 20468 --- [  restartedMain] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+[2024-05-27 13:56:24.320]  INFO 20468 --- [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+[2024-05-27 13:56:24.321]  WARN 20468 --- [  restartedMain] o.h.d.Dialect                            : HHH000511: The 10.1.0 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.3.0. Check the community dialects project for available legacy versions.
+[2024-05-27 13:56:24.333]  INFO 20468 --- [  restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2024-05-27 13:56:24.333]  INFO 20468 --- [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2024-05-27 13:56:24.421]  WARN 20468 --- [  restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2024-05-27 13:56:24.482]  INFO 20468 --- [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+[2024-05-27 13:56:24.492]  INFO 20468 --- [  restartedMain] o.a.c.h.Http11NioProtocol                : Starting ProtocolHandler ["http-nio-8060"]
+[2024-05-27 13:56:24.497]  INFO 20468 --- [  restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8060 (http) with context path ''
+[2024-05-27 13:56:24.499]  INFO 20468 --- [  restartedMain] c.w.WebtoonBootCafe24Application         : Started WebtoonBootCafe24Application in 0.584 seconds (process running for 295.148)
+[2024-05-27 13:56:24.500]  INFO 20468 --- [  restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+[2024-05-27 13:56:47.822]  INFO 20468 --- [nio-8060-exec-2] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2024-05-27 13:56:47.823]  INFO 20468 --- [nio-8060-exec-2] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+[2024-05-27 13:56:47.825]  INFO 20468 --- [nio-8060-exec-2] o.s.w.s.DispatcherServlet                : Completed initialization in 2 ms

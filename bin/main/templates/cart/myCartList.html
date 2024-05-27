@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" 
+	layout:decorate="~{layout/baseLayout}"
+	layout:fragment="body">
+	
+<head>
+	<title>장바구니</title>
+</head>
+<body>
+
+	<div id="cart" class="detail_box">
+	    <h2>장바구니</h2>
+	    <div>
+	        <th:block th:if="${#lists.isEmpty(myCartList)}">
+	            <p class="emptyCart">장바구니에 상품이 없습니다.
+	                <i class="fa-sharp fa-solid fa-cart-shopping fa-xl"></i>
+	            </p>
+	        </th:block>
+	        <th:block th:unless="${#lists.isEmpty(myCartList)}">
+	            <form name="frm_order_all_cart" th:action="@{/order/orderAllCartGoods}" method="post">
+	                <th:block th:each="item, cnt : ${myGoodsList}">
+	                    <!-- 인덱스 초기화 -->
+	                    <th:block th:with="cart_goods_qty=${myCartList[cnt.index].cart_goods_qty},
+	                                       cart_id=${myCartList[cnt.index].cart_id}">
+	                        <!-- 상품정보 및 선택영역  -->
+	                        <div class="goods_info_box">
+	                            <!-- 체크박스 영역  -->
+	                            <div class="check">
+	                                <input type="checkbox" name="checked_goods" class="cartGood"
+	                                       th:attr="price=${item.goods_price * cart_goods_qty}, value=${item.goods_id}">
+	                            </div>
+	                            <!-- 체크박스 영역  -->
+	
+	                            <!-- 상품상세페이지로 이동  -->
+	                            <div class="detail_info_box">
+	                                <a th:href="@{/goods/goodsDetail(goods_id=${item.goods_id})}">
+	                                    <div class="detail_info">
+	                                        <img th:src="@{/thumbnails(goods_id=${item.goods_id},fileName=${item.goods_fileName})}"
+	                                             style="width: 64px; height: 64px">
+	                                        <div>
+	                                            <p th:text="${item.goods_title}"></p>
+	                                            <p th:text="${item.goods_writer_intro}"></p>
+	                                            <p>
+	                                                <span th:text="${cart_goods_qty}"></span>개
+	                                                <span> · </span>
+	                                                <span th:text="${#numbers.formatDecimal(item.goods_price * cart_goods_qty, 0, 'COMMA', 1)}"></span>원
+	                                                <span class="goods_price d-none" th:text="${item.goods_price * cart_goods_qty}"></span>
+	                                            </p>
+	                                        </div>
+	                                    </div>
+	                                </a>
+	                            </div>
+	                            <!-- 상품상세페이지로 이동  -->
+	
+	                            <!-- 상품정보 수정영역  -->
+	                            <div class="goods_modi">
+	                                <select id="sel_qty" selectedValue="1"
+	                                        th:onchange="selectValue(this, this.value,${item.goods_id},${cnt.index})">
+	                                    <option th:each="i : ${#numbers.sequence(1, 7)}" th:value="${i}" th:text="${i}"></option>
+	                                </select>
+	                                <input type="hidden" id="cart_goods_qty" name="cart_goods_qty" th:value="${cart_goods_qty}">
+	
+	                                <!-- 주문하기 -->
+	                                <a th:href="javascript:fn_order_each_goods('${item.goods_id}', '${item.goods_title}', '${item.goods_price}', '${item.goods_fileName}');"
+	                                   style="width: 150px;">주문하기</a>
+	
+	                                <!-- 삭제하기 -->
+	                                <a th:href="javascript:delete_cart_goods('${cart_id}');" style="width: 150px;">삭제</a>
+	                            </div>
+	                            <!-- 상품정보 수정영역  -->
+	                        </div>
+	                        <!-- 상품정보 및 선택영역  -->
+	                    </th:block>
+	                </th:block>
+	            </form>
+	        </th:block>
+	    </div>
+	
+	    <!-- 전체선택  -->
+	    <label class="allSelect">
+	        <input name="checked_goods" class="all-deal-select" title="모든 상품을 결제상품으로 설정"
+	               type="checkbox" onclick="selectAll(this)">
+	        전체선택
+	    </label>
+	    <!-- 전체선택  -->
+	
+	    <!-- 선택상품 가격표시 영역  -->
+	    <div class="tot_price">
+			<th:block th:with="${#lists.isEmpty(myCartList)} ? totalDeliveryPrice=0 : totalDeliveryPrice=3000">
+	        <!-- 변수세팅 및 형 변환 -->
+	        <!-- 상품가격 * 갯수 및 형변환 -->
+	        <th:block th:with="totalGoodsPrice=${totalGoodsPrice + item.goods_price * cart_goods_qty}"></th:block>
+	        <th:block th:with="total_price=${totalGoodsPrice + totalDeliveryPrice}"></th:block>
+	        <!-- 변수세팅 및 형 변환 -->
+	        <!-- 가격정보 hidden input -->
+	        <input id="h_totalGoodsPrice" type="hidden" th:value="${totalGoodsPrice}"/>
+	        <input id="h_totalDeliveryPrice" type="hidden" th:value="${totalDeliveryPrice}"/>
+	        <input id="h_totalSalesPrice" type="hidden" th:value="${totalSalesPrice}"/>
+	        <input id="h_final_totalPrice" type="hidden" th:value="${totalGoodsPrice + totalDeliveryPrice}"/>
+	        <!-- 가격정보 hidden input -->
+	
+	        <!-- 총 상품가격 -->
+	        <p>총 상품가격
+	            <span id="goodsPrice" th:text="${#numbers.formatDecimal(totalGoodsPrice, 0, 'COMMA', 1)}"></span>원
+	        </p>
+	        +
+	        <!-- 총 배송비 -->
+	        <p>총 배송비
+	            <span id="deliveryPrice" th:text="${#numbers.formatDecimal(totalDeliveryPrice, 0, 'COMMA', 1)}"></span>원
+	        </p>
+	        =
+	        <!-- 총 주문금액 -->
+	        <p>총 주문금액
+	            <span id="totalPrice" th:text="${#numbers.formatDecimal(total_price, 0, 'COMMA', 1)}"></span>원
+	        </p>
+			</th:block>
+	    </div>
+	    <!-- 선택상품 가격표시 영역  -->
+	
+	    <!-- 선택상품 주문하기  -->
+	    <button onclick="fn_order_all_cart_goods()">주문하기</button>
+	    <!-- 선택상품 주문하기  -->
+	</div>
+	
+	<script th:inline="javascript">
+	    function selectValue(selectBox, value, goods_id, index) {
+	        var input = selectBox.nextElementSibling;
+	        input.setAttribute("value", value);
+	        modify_cart_qty(index, goods_id, value);
+	    }
+	
+	    function modify_cart_qty(index, goods_id, value) {
+	        var cart_goods_qty = Number(value);
+	        $.ajax({
+	            type: "post",
+	            async: false,
+	            url: /*[[${contextPath}]]*/ '/cart/modifyCartQty.do',
+	            data: {
+	                goods_id: goods_id,
+	                cart_goods_qty: cart_goods_qty
+	            },
+	            success: function (data, textStatus) {
+	                if (data.trim() === 'modify_success') {
+	                    alert("수량을 변경했습니다!!");
+	                    location.reload();
+	                } else {
+	                    alert("다시 시도해 주세요!!");
+	                }
+	            },
+	            error: function (data, textStatus) {
+	                alert("에러가 발생했습니다." + data);
+	            },
+	            complete: function (data, textStatus) {
+	            }
+	        });
+	    }
+	
+	    function delete_cart_goods(cart_id) {
+	        var cart_id = Number(cart_id);
+	        var formObj = document.createElement("form");
+	        var i_cart = document.createElement("input");
+	        i_cart.name = "cart_id";
+	        i_cart.value = cart_id;
+	        formObj.appendChild(i_cart);
+	        document.body.appendChild(formObj);
+	        formObj.method = "post";
+	        formObj.action = /*[[${contextPath}]]*/ '/cart/removeCartGoods.do';
+	        formObj.submit();
+	    }
+	
+	    function fn_order_all_cart_goods() {
+	        var objForm = document.frm_order_all_cart;
+	        var cart_goods_qty = objForm.cart_goods_qty;
+	        var checked_goods = objForm.checked_goods;
+	        var length = checked_goods.length;
+	        if (length > 1) {
+	            for (var i = 0; i < length; i++) {
+	                if (checked_goods[i].checked === true) {
+	                    var order_goods_id = checked_goods[i].value;
+	                    var order_goods_qty = cart_goods_qty[i].value;
+	                    cart_goods_qty[i].value = order_goods_id + ":" + order_goods_qty;
+	                }
+	            }
+	        } else {
+	            var order_goods_id = checked_goods.value;
+	            var order_goods_qty = cart_goods_qty.value;
+	            cart_goods_qty.value = order_goods_id + ":" + order_goods_qty;
+	        }
+	        objForm.method = "post";
+	        objForm.action = /*[[${contextPath}]]*/ '/order/orderAllCartGoods.do';
+	        objForm.submit();
+	        for (var i = 0; i < length; i++) {
+	            cart_goods_qty[i].value = cart_goods_qty[i].previousElementSibling.value;
+	        }
+	    }
+	
+	    function fn_order_each_goods(goods_id, goods_title, goods_price, fileName) {
+	        var cart_goods_qty = document.getElementById("cart_goods_qty");
+	        var _order_goods_qty = cart_goods_qty.value;
+	        var formObj = document.createElement("form");
+	        var i_goods_id = document.createElement("input");
+	        var i_goods_title = document.createElement("input");
+	        var i_goods_price = document.createElement("input");
+	        var i_fileName = document.createElement("input");
+	        var i_order_goods_qty = document.createElement("input");
+	
+	        i_goods_id.name = "goods_id";
+	        i_goods_title.name = "goods_title";
+	        i_goods_price.name = "goods_price";
+	        i_fileName.name = "goods_fileName";
+	        i_order_goods_qty.name = "order_goods_qty";
+	
+	        i_goods_id.value = goods_id;
+	        i_order_goods_qty.value = _order_goods_qty;
+	        i_goods_title.value = goods_title;
+	        i_goods_price.value = goods_price;
+	        i_fileName.value = fileName;
+	
+	        formObj.appendChild(i_goods_id);
+	        formObj.appendChild(i_goods_title);
+	        formObj.appendChild(i_goods_price);
+	        formObj.appendChild(i_fileName);
+	        formObj.appendChild(i_order_goods_qty);
+	        document.body.appendChild(formObj);
+	
+	        formObj.method = "post";
+	        formObj.action = /*[[${contextPath}]]*/ '/order/orderEachGoods.do';
+	        formObj.submit();
+	    }
+	
+	    var cart_goods_qty_inputs = document.getElementsByName("cart_goods_qty");
+	    cart_goods_qty_inputs.forEach((input) => {
+	        let inputValue = input.value;
+	        let selectBox = input.previousElementSibling;
+	        let selectBox_len = selectBox.options.length;
+	        for (let i = 0; i < selectBox_len; i++) {
+	            if (selectBox.options[i].value == inputValue) {
+	                selectBox.options[i].selected = true;
+	            }
+	        }
+	    });
+	
+	    var total = 0;
+	    var total_all = 0;
+	    const checkboxes = document.getElementsByName('checked_goods');
+	    var totalPrice = document.getElementById("totalPrice");
+	    var deliveryPrice = document.getElementById("deliveryPrice");
+	    var goodsPrice = document.getElementById("goodsPrice");
+	
+	    function selectAll(selectAll) {
+	        const goods_price = document.querySelectorAll(".goods_price");
+	        checkboxes.forEach((checkbox) => {
+	            checkbox.checked = selectAll.checked;
+	        });
+	        if (selectAll.checked === true) {
+	            total_all = 0;
+	            total = 0;
+	            for (const i of goods_price) {
+	                total_all += i.innerHTML * 1;
+	                total = total_all + 3000;
+	            }
+	            goodsPrice.innerHTML = total_all.toLocaleString();
+	            totalPrice.innerHTML = total.toLocaleString();
+	        } else if (selectAll.checked === false) {
+	            for (const i of goods_price) {
+	                total_all -= i.innerHTML * 1;
+	                total = total_all + 3000;
+	            }
+	            goodsPrice.innerHTML = total_all.toLocaleString();
+	            totalPrice.innerHTML = total.toLocaleString();
+	        }
+	    }
+	
+	    checkboxes.forEach((i) => i.addEventListener("click", function () {
+	        if (this.checked === true) {
+	            total_all += i.getAttribute("price") * 1;
+	            total = total_all + 3000;
+	        } else if (this.checked === false) {
+	            total_all -= i.getAttribute("price") * 1;
+	            all_select.checked = false;
+	            total = total_all + 3000;
+	        }
+	        goodsPrice.innerHTML = total_all.toLocaleString();
+	        totalPrice.innerHTML = total.toLocaleString();
+	    }));
+	</script>
+
+
+</body>
+</html>

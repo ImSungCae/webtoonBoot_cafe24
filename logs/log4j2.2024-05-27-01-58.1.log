@@ -1,0 +1,1 @@
+[2024-05-27 13:58:23.713]  WARN 17960 --- [nio-8060-exec-6] o.m.j.m.s.ErrorPacket                    : Error: 1062-23000: Duplicate entry '123' for key 'PRIMARY'

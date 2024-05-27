@@ -85,7 +85,6 @@ public class GoodsControllerImpl extends BaseController implements GoodsControll
 		// goods_id값에 맞는 상세정보 가져와 goodsMap 할당
 		Map goodsMap = goodsService.goodsDetail(goods_id);
 		mav.addObject("goodsMap", goodsMap);
-
 		// goodsMap을 goodsVO 객체에 대입
 		GoodsVO goodsVO = (GoodsVO) goodsMap.get("goodsVO");
 
