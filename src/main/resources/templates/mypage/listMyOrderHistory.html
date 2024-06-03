@@ -26,10 +26,10 @@
 		</form>
 
 		<div class="order_history_box">
-			<th:block th:if="${#strings.isEmpty(myOrderHistList) }">
+			<th:block th:if="${#lists.isEmpty(myOrderHistList) }">
 				<p style="text-align: center;opacity: .5;">주문한 상품이 없습니다.</p>
 			</th:block>
-			<th:block th:unless="${#strings.isEmpty(myOrderHistList) }">
+			<th:block th:unless="${#lists.isEmpty(myOrderHistList) }">
 				<th:block th:each="item : ${myOrderHistList}">
 					<th:block th:if="${item.order_id != ${#lists.get(myOrderHistList, item.index - 1)?.order_id}}">
 						<div class="history_detail_box">

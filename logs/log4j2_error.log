@@ -1,26 +1,8 @@
-[2024-05-27 17:10:01.836] ERROR 19352 --- [nio-8060-exec-2] o.t.TemplateEngine                       : [THYMELEAF][http-nio-8060-exec-2] Exception processing template "/cart/myCartList": Could not parse as assignation sequence: "${#lists.isEmpty(myCartList)} ? totalDeliveryPrice=0 : totalDeliveryPrice=3000" (template: "/cart/myCartList" - line 90, col 14)
+[2024-06-03 17:13:06.677] ERROR 2156 --- [nio-8060-exec-5] o.t.TemplateEngine                       : [THYMELEAF][http-nio-8060-exec-5] Exception processing template "/cart/modifyCartQty": Error resolving template [/cart/modifyCartQty], template might not exist or might not be accessible by any of the configured Template Resolvers
 
-org.thymeleaf.exceptions.TemplateProcessingException: Could not parse as assignation sequence: "${#lists.isEmpty(myCartList)} ? totalDeliveryPrice=0 : totalDeliveryPrice=3000" (template: "/cart/myCartList" - line 90, col 14)
-	at org.thymeleaf.standard.expression.AssignationUtils.parseAssignationSequence(AssignationUtils.java:68) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
-	at org.thymeleaf.standard.processor.StandardWithTagProcessor.doProcess(StandardWithTagProcessor.java:64) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
-	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
-	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
-	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
-	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
-	at org.thymeleaf.engine.OpenElementTag.beHandled(OpenElementTag.java:205) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
-	at org.thymeleaf.engine.Model.process(Model.java:282) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
-	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1587) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
-	at org.thymeleaf.engine.OpenElementTag.beHandled(OpenElementTag.java:205) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
-	at org.thymeleaf.engine.Model.process(Model.java:282) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
-	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1587) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
-	at org.thymeleaf.engine.OpenElementTag.beHandled(OpenElementTag.java:205) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
-	at org.thymeleaf.engine.Model.process(Model.java:282) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
-	at org.thymeleaf.engine.Model.process(Model.java:290) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
-	at org.thymeleaf.engine.GatheringModelProcessable.process(GatheringModelProcessable.java:78) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
-	at org.thymeleaf.engine.ProcessorTemplateHandler.handleCloseElement(ProcessorTemplateHandler.java:1640) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
-	at org.thymeleaf.engine.CloseElementTag.beHandled(CloseElementTag.java:139) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
-	at org.thymeleaf.engine.TemplateModel.process(TemplateModel.java:136) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
-	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:661) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+org.thymeleaf.exceptions.TemplateInputException: Error resolving template [/cart/modifyCartQty], template might not exist or might not be accessible by any of the configured Template Resolvers
+	at org.thymeleaf.engine.TemplateManager.resolveTemplate(TemplateManager.java:869) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:607) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
 	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1103) [thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
 	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1077) [thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
 	at org.thymeleaf.spring6.view.ThymeleafView.renderFragment(ThymeleafView.java:372) [thymeleaf-spring6-3.1.2.RELEASE.jar:3.1.2.RELEASE]
@@ -68,29 +50,11 @@ org.thymeleaf.exceptions.TemplateProcessingException: Could not parse as assigna
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) [tomcat-embed-core-10.1.19.jar:10.1.19]
 	at java.lang.Thread.run(Thread.java:840) [?:?]
 
-[2024-05-27 17:10:01.851] ERROR 19352 --- [nio-8060-exec-2] o.a.c.c.C.[.[.[.[dispatcherServlet]      : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.thymeleaf.exceptions.TemplateProcessingException: Could not parse as assignation sequence: "${#lists.isEmpty(myCartList)} ? totalDeliveryPrice=0 : totalDeliveryPrice=3000" (template: "/cart/myCartList" - line 90, col 14)] with root cause
+[2024-06-03 17:13:06.698] ERROR 2156 --- [nio-8060-exec-5] o.a.c.c.C.[.[.[.[dispatcherServlet]      : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.thymeleaf.exceptions.TemplateInputException: Error resolving template [/cart/modifyCartQty], template might not exist or might not be accessible by any of the configured Template Resolvers] with root cause
 
-org.thymeleaf.exceptions.TemplateProcessingException: Could not parse as assignation sequence: "${#lists.isEmpty(myCartList)} ? totalDeliveryPrice=0 : totalDeliveryPrice=3000" (template: "/cart/myCartList" - line 90, col 14)
-	at org.thymeleaf.standard.expression.AssignationUtils.parseAssignationSequence(AssignationUtils.java:68) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
-	at org.thymeleaf.standard.processor.StandardWithTagProcessor.doProcess(StandardWithTagProcessor.java:64) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
-	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
-	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
-	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
-	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
-	at org.thymeleaf.engine.OpenElementTag.beHandled(OpenElementTag.java:205) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
-	at org.thymeleaf.engine.Model.process(Model.java:282) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
-	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1587) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
-	at org.thymeleaf.engine.OpenElementTag.beHandled(OpenElementTag.java:205) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
-	at org.thymeleaf.engine.Model.process(Model.java:282) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
-	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1587) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
-	at org.thymeleaf.engine.OpenElementTag.beHandled(OpenElementTag.java:205) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
-	at org.thymeleaf.engine.Model.process(Model.java:282) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
-	at org.thymeleaf.engine.Model.process(Model.java:290) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
-	at org.thymeleaf.engine.GatheringModelProcessable.process(GatheringModelProcessable.java:78) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
-	at org.thymeleaf.engine.ProcessorTemplateHandler.handleCloseElement(ProcessorTemplateHandler.java:1640) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
-	at org.thymeleaf.engine.CloseElementTag.beHandled(CloseElementTag.java:139) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
-	at org.thymeleaf.engine.TemplateModel.process(TemplateModel.java:136) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
-	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:661) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+org.thymeleaf.exceptions.TemplateInputException: Error resolving template [/cart/modifyCartQty], template might not exist or might not be accessible by any of the configured Template Resolvers
+	at org.thymeleaf.engine.TemplateManager.resolveTemplate(TemplateManager.java:869) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:607) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
 	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1103) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
 	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1077) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
 	at org.thymeleaf.spring6.view.ThymeleafView.renderFragment(ThymeleafView.java:372) ~[thymeleaf-spring6-3.1.2.RELEASE.jar:3.1.2.RELEASE]

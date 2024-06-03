@@ -100,8 +100,10 @@ public class CartControllerImpl extends BaseController implements CartController
 		boolean result=cartService.modifyCartQty(cartVO);
 		
 		//완료시 modify_success, 외의 경우 modify_failed를 리턴.
-		if(result==true){return "modify_success";}
-		else{return "modify_failed";	}
+		if(result==true){
+				
+			return "modify_success";
+		} else{return "modify_failed";	}
 		
 	}
 	

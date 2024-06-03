@@ -1,0 +1,8 @@
+[2024-06-03 17:24:59.930]  INFO 25152 --- [n(15)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+[2024-06-03 17:24:59.953]  INFO 25152 --- [n(15)-127.0.0.1] o.a.c.h.Http11NioProtocol                : Pausing ProtocolHandler ["http-nio-8060"]
+[2024-06-03 17:24:59.953]  INFO 25152 --- [n(15)-127.0.0.1] o.a.c.c.StandardService                  : Stopping service [Tomcat]
+[2024-06-03 17:24:59.956]  INFO 25152 --- [n(15)-127.0.0.1] o.a.c.h.Http11NioProtocol                : Stopping ProtocolHandler ["http-nio-8060"]
+[2024-06-03 17:24:59.957]  INFO 25152 --- [n(15)-127.0.0.1] o.a.c.h.Http11NioProtocol                : Destroying ProtocolHandler ["http-nio-8060"]
+[2024-06-03 17:24:59.959]  INFO 25152 --- [n(15)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+[2024-06-03 17:24:59.959]  INFO 25152 --- [n(15)-127.0.0.1] c.z.h.HikariDataSource                   : HikariPool-2 - Shutdown initiated...
+[2024-06-03 17:24:59.961]  INFO 25152 --- [n(15)-127.0.0.1] c.z.h.HikariDataSource                   : HikariPool-2 - Shutdown completed.
