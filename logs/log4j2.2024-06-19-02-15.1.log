@@ -1,0 +1,33 @@
+[2024-06-19 14:15:28.659]  INFO 6636 --- [  restartedMain] c.w.WebtoonBootCafe24Application         : Starting WebtoonBootCafe24Application using Java 17.0.10 with PID 6636 (C:\Users\home\Desktop\isc\isc_new\workspace\sts-4.22_workspace\webtoonBoot_cafe24\bin\main started by home in C:\Users\home\Desktop\isc\isc_new\workspace\sts-4.22_workspace\webtoonBoot_cafe24)
+[2024-06-19 14:15:28.751]  INFO 6636 --- [  restartedMain] c.w.WebtoonBootCafe24Application         : No active profile set, falling back to 1 default profile: "default"
+[2024-06-19 14:15:29.058]  INFO 6636 --- [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[2024-06-19 14:15:29.059]  INFO 6636 --- [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[2024-06-19 14:15:30.718]  INFO 6636 --- [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2024-06-19 14:15:30.746]  INFO 6636 --- [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 19 ms. Found 0 JPA repository interfaces.
+[2024-06-19 14:15:30.839]  WARN 6636 --- [  restartedMain] o.m.s.m.ClassPathMapperScanner           : No MyBatis mapper was found in '[com.webtoonBoot]' package. Please check your configuration.
+[2024-06-19 14:15:31.352]  INFO 6636 --- [  restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8060 (http)
+[2024-06-19 14:15:31.366]  INFO 6636 --- [  restartedMain] o.a.c.h.Http11NioProtocol                : Initializing ProtocolHandler ["http-nio-8060"]
+[2024-06-19 14:15:31.369]  INFO 6636 --- [  restartedMain] o.a.c.c.StandardService                  : Starting service [Tomcat]
+[2024-06-19 14:15:31.369]  INFO 6636 --- [  restartedMain] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/10.1.19]
+[2024-06-19 14:15:31.680]  INFO 6636 --- [  restartedMain] o.a.j.s.TldScanner                       : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[2024-06-19 14:15:31.688]  INFO 6636 --- [  restartedMain] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+[2024-06-19 14:15:31.688]  INFO 6636 --- [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2628 ms
+[2024-06-19 14:15:31.719]  INFO 6636 --- [  restartedMain] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+[2024-06-19 14:15:31.799]  INFO 6636 --- [  restartedMain] c.z.h.p.HikariPool                       : HikariPool-1 - Added connection org.mariadb.jdbc.Connection@14a46fe5
+[2024-06-19 14:15:31.800]  INFO 6636 --- [  restartedMain] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+[2024-06-19 14:15:31.813]  INFO 6636 --- [  restartedMain] o.s.b.a.h.H2ConsoleAutoConfiguration     : H2 console available at '/h2-console'. Database available at 'jdbc:mariadb://localhost/webtoonBoot?user=root&password=***&serverTimezone=UTC&characterEncoding=UTF-8&createDatabaseIfNotExist=true'
+[2024-06-19 14:15:31.934]  INFO 6636 --- [  restartedMain] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+[2024-06-19 14:15:32.001]  INFO 6636 --- [  restartedMain] o.h.Version                              : HHH000412: Hibernate ORM core version 6.2.22.Final
+[2024-06-19 14:15:32.004]  INFO 6636 --- [  restartedMain] o.h.c.Environment                        : HHH000406: Using bytecode reflection optimizer
+[2024-06-19 14:15:32.295]  INFO 6636 --- [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+[2024-06-19 14:15:32.374]  WARN 6636 --- [  restartedMain] o.h.d.Dialect                            : HHH000511: The 10.1.0 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.3.0. Check the community dialects project for available legacy versions.
+[2024-06-19 14:15:32.691]  INFO 6636 --- [  restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2024-06-19 14:15:32.695]  INFO 6636 --- [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2024-06-19 14:15:33.056]  WARN 6636 --- [  restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2024-06-19 14:15:33.536]  INFO 6636 --- [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+[2024-06-19 14:15:33.552]  INFO 6636 --- [  restartedMain] o.a.c.h.Http11NioProtocol                : Starting ProtocolHandler ["http-nio-8060"]
+[2024-06-19 14:15:33.583]  INFO 6636 --- [  restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8060 (http) with context path ''
+[2024-06-19 14:15:33.592]  INFO 6636 --- [  restartedMain] c.w.WebtoonBootCafe24Application         : Started WebtoonBootCafe24Application in 5.434 seconds (process running for 11.924)
+[2024-06-19 14:15:36.701]  INFO 6636 --- [nio-8060-exec-2] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2024-06-19 14:15:36.702]  INFO 6636 --- [nio-8060-exec-2] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+[2024-06-19 14:15:36.704]  INFO 6636 --- [nio-8060-exec-2] o.s.w.s.DispatcherServlet                : Completed initialization in 2 ms

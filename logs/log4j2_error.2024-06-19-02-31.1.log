@@ -1,4 +1,4 @@
-[2024-06-19 15:34:48.238] ERROR 22072 --- [  restartedMain] o.a.c.s.StandardManager                  : Exception loading sessions from persistent storage
+[2024-06-19 14:31:17.964] ERROR 22000 --- [  restartedMain] o.a.c.s.StandardManager                  : Exception loading sessions from persistent storage
 
 java.io.InvalidClassException: java.io.ObjectStreamException; unable to create instance
 	at java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2238) ~[?:?]

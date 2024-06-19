@@ -45,7 +45,7 @@
 													<span class="list_qty" th:text="${cart_goods_qty}"></span>개
 													<span> · </span>
 													<span
-														th:text="${#numbers.formatInteger(item.goods_price * cart_goods_qty, 3, 'COMMA')}"></span>원
+														th:text="${#numbers.formatInteger(item.goods_price * cart_goods_qty, 3, 'COMMA')}" class="goods_tot_price"></span>원
 													<span class="goods_price d-none"
 														th:text="${item.goods_price * cart_goods_qty}"></span>
 												</p>
@@ -58,7 +58,7 @@
 								<!-- 상품정보 수정영역  -->
 								<div class="goods_modi">
 									<select id="sel_qty" selectedValue="1"
-										th:onchange="selectValue(this, this.value,/*[[${item.goods_id}]]*/, /*[[${cnt.index}]]*/)">
+										th:onchange="selectValue(this, this.value,/*[[${item.goods_id}]]*/, /*[[${cnt.index}]]*/, /*[[${item.goods_price}]]*/)">
 										<option th:each="i : ${#numbers.sequence(1, 7)}" th:value="${i}" th:text="${i}">
 										</option>
 									</select>
@@ -95,7 +95,7 @@
 		totalDeliveryPrice = ${#lists.isEmpty(session.cartMap.myCartList)} ? 0 : 3000, 
 					totalGoodsPrice=0">
 
-			<th:block th:with="totalGoodsPrice=${#aggregates.sum(myGoodsList.![goods_price])}">
+			<th:block th:with="totalGoodsPrice=0">
 				
 		
 			<!--<th:block th:each="cart : ${myCartList}">
@@ -108,7 +108,7 @@
 
 			<!--총 상품가격-->
 			<p>총 상품가격
-				<span id="goodsPrice" th:text="${#numbers.formatInteger(totalGoodsPrice, 3, 'COMMA')}"></span>원
+				<span id="goodsPrice" th:text="${totalGoodsPrice != 0 ? #numbers.formatInteger(totalGoodsPrice, 3, 'COMMA') : 0}"></span>원
 			</p>
 			+
 			<!--총 배송비-->
@@ -130,14 +130,17 @@
 	</div>
 
 	<script th:inline="javascript">
-		function selectValue(selectBox, value, goods_id, index) {
-			var input = selectBox.nextElementSibling;
+		function selectValue(selectBox, value, goods_id, index,goods_price) {
+			var input = selectBox;
+			console.log(goods_price);
 			input.setAttribute("value", value);
-			modify_cart_qty(index, goods_id, value);
+			modify_cart_qty(index, goods_id, value,goods_price);
 		}
 
-		function modify_cart_qty(index, goods_id, value) {
+		function modify_cart_qty(index, goods_id, value,goods_price) {
 			var cart_goods_qty = Number(value);
+			var goods_tot = goods_price * cart_goods_qty;
+			var formattedTotal = formatNumber(goods_tot);
 			$.ajax({
 				type: "POST",
 				async: false,
@@ -148,7 +151,10 @@
 				},
 				success: function (data, textStatus) {
 					if (data.trim() === 'modify_success') {
-						$('.list_qty')[index].replaceWith(cart_goods_qty);
+						$('.list_qty').eq(index).text(cart_goods_qty);
+						$('.goods_tot_price').eq(index).text(formattedTotal);
+						$('.goods_price').eq(index).text(goods_tot);
+						$('.goods_info_box')
 						alert("수량을 변경했습니다!!");
 						
 					} else {
@@ -161,6 +167,9 @@
 				complete: function (data, textStatus) {
 				}
 			});
+		}
+		function formatNumber(num) {
+		    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 		}
 
 		function delete_cart_goods(cart_id) {
@@ -278,7 +287,7 @@
 				totalPrice.innerHTML = total.toLocaleString();
 			}
 		}
-
+		let all_select = document.querySelector(".all-deal-select");
 		checkboxes.forEach((i) => i.addEventListener("click", function () {
 			if (this.checked === true) {
 				total_all += i.getAttribute("price") * 1;

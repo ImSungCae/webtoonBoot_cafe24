@@ -1,8 +1,8 @@
-[2024-06-19 17:54:02.843]  INFO 13380 --- [(107)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
-[2024-06-19 17:54:02.898]  INFO 13380 --- [(107)-127.0.0.1] o.a.c.h.Http11NioProtocol                : Pausing ProtocolHandler ["http-nio-8060"]
-[2024-06-19 17:54:02.898]  INFO 13380 --- [(107)-127.0.0.1] o.a.c.c.StandardService                  : Stopping service [Tomcat]
-[2024-06-19 17:54:02.913]  INFO 13380 --- [(107)-127.0.0.1] o.a.c.c.C.[.[.[/]                        : Destroying Spring FrameworkServlet 'dispatcherServlet'
-[2024-06-19 17:54:02.913]  WARN 13380 --- [(107)-127.0.0.1] o.a.c.c.C.[.[.[/]                        : Cannot serialize session attribute [cartMap] for session [8400B9826F217C409C673DB8E090D48C]
+[2024-06-19 15:49:18.693]  INFO 19792 --- [n(11)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+[2024-06-19 15:49:18.718]  INFO 19792 --- [n(11)-127.0.0.1] o.a.c.h.Http11NioProtocol                : Pausing ProtocolHandler ["http-nio-8060"]
+[2024-06-19 15:49:18.718]  INFO 19792 --- [n(11)-127.0.0.1] o.a.c.c.StandardService                  : Stopping service [Tomcat]
+[2024-06-19 15:49:18.719]  INFO 19792 --- [n(11)-127.0.0.1] o.a.c.c.C.[.[.[/]                        : Destroying Spring FrameworkServlet 'dispatcherServlet'
+[2024-06-19 15:49:18.721]  WARN 19792 --- [n(11)-127.0.0.1] o.a.c.c.C.[.[.[/]                        : Cannot serialize session attribute [cartMap] for session [8400B9826F217C409C673DB8E090D48C]
 
 java.io.NotSerializableException: com.webtoonBoot.cart.vo.CartVO
 	at java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1187) ~[?:?]
@@ -72,7 +72,7 @@ java.io.NotSerializableException: com.webtoonBoot.cart.vo.CartVO
 	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
 	at java.lang.reflect.Method.invoke(Method.java:568) ~[?:?]
 	at sun.reflect.misc.Trampoline.invoke(MethodUtil.java:72) ~[?:?]
-	at jdk.internal.reflect.GeneratedMethodAccessor29.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.GeneratedMethodAccessor31.invoke(Unknown Source) ~[?:?]
 	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
 	at java.lang.reflect.Method.invoke(Method.java:568) ~[?:?]
 	at sun.reflect.misc.MethodUtil.invoke(MethodUtil.java:262) ~[?:?]
@@ -89,7 +89,7 @@ java.io.NotSerializableException: com.webtoonBoot.cart.vo.CartVO
 	at javax.management.remote.rmi.RMIConnectionImpl$PrivilegedOperation.run(RMIConnectionImpl.java:1310) ~[?:?]
 	at javax.management.remote.rmi.RMIConnectionImpl.doPrivilegedOperation(RMIConnectionImpl.java:1405) ~[?:?]
 	at javax.management.remote.rmi.RMIConnectionImpl.invoke(RMIConnectionImpl.java:829) ~[?:?]
-	at jdk.internal.reflect.GeneratedMethodAccessor31.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.GeneratedMethodAccessor30.invoke(Unknown Source) ~[?:?]
 	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
 	at java.lang.reflect.Method.invoke(Method.java:568) ~[?:?]
 	at sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:360) ~[?:?]
@@ -106,8 +106,42 @@ java.io.NotSerializableException: com.webtoonBoot.cart.vo.CartVO
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) [?:?]
 	at java.lang.Thread.run(Thread.java:840) [?:?]
 
-[2024-06-19 17:54:02.929]  INFO 13380 --- [(107)-127.0.0.1] o.a.c.h.Http11NioProtocol                : Stopping ProtocolHandler ["http-nio-8060"]
-[2024-06-19 17:54:02.929]  INFO 13380 --- [(107)-127.0.0.1] o.a.c.h.Http11NioProtocol                : Destroying ProtocolHandler ["http-nio-8060"]
-[2024-06-19 17:54:02.938]  INFO 13380 --- [(107)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-[2024-06-19 17:54:02.943]  INFO 13380 --- [(107)-127.0.0.1] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
-[2024-06-19 17:54:02.945]  INFO 13380 --- [(107)-127.0.0.1] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+[2024-06-19 15:49:18.731]  INFO 19792 --- [n(11)-127.0.0.1] o.a.c.h.Http11NioProtocol                : Stopping ProtocolHandler ["http-nio-8060"]
+[2024-06-19 15:49:18.732]  INFO 19792 --- [n(11)-127.0.0.1] o.a.c.h.Http11NioProtocol                : Destroying ProtocolHandler ["http-nio-8060"]
+[2024-06-19 15:49:18.734]  INFO 19792 --- [n(11)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+[2024-06-19 15:49:18.736]  INFO 19792 --- [n(11)-127.0.0.1] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+[2024-06-19 15:49:18.738]  INFO 19792 --- [n(11)-127.0.0.1] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+[2024-06-19 15:49:20.495]  INFO 23400 --- [  restartedMain] c.w.WebtoonBootCafe24Application         : Starting WebtoonBootCafe24Application using Java 17.0.10 with PID 23400 (C:\Users\home\Desktop\isc\isc_new\workspace\sts-4.22_workspace\webtoonBoot_cafe24\bin\main started by home in C:\Users\home\Desktop\isc\isc_new\workspace\sts-4.22_workspace\webtoonBoot_cafe24)
+[2024-06-19 15:49:20.504]  INFO 23400 --- [  restartedMain] c.w.WebtoonBootCafe24Application         : No active profile set, falling back to 1 default profile: "default"
+[2024-06-19 15:49:20.671]  INFO 23400 --- [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[2024-06-19 15:49:20.672]  INFO 23400 --- [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[2024-06-19 15:49:21.129]  INFO 23400 --- [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2024-06-19 15:49:21.149]  INFO 23400 --- [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14 ms. Found 0 JPA repository interfaces.
+[2024-06-19 15:49:21.221]  WARN 23400 --- [  restartedMain] o.m.s.m.ClassPathMapperScanner           : No MyBatis mapper was found in '[com.webtoonBoot]' package. Please check your configuration.
+[2024-06-19 15:49:21.583]  INFO 23400 --- [  restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8060 (http)
+[2024-06-19 15:49:21.590]  INFO 23400 --- [  restartedMain] o.a.c.h.Http11NioProtocol                : Initializing ProtocolHandler ["http-nio-8060"]
+[2024-06-19 15:49:21.591]  INFO 23400 --- [  restartedMain] o.a.c.c.StandardService                  : Starting service [Tomcat]
+[2024-06-19 15:49:21.592]  INFO 23400 --- [  restartedMain] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/10.1.19]
+[2024-06-19 15:49:21.798]  INFO 23400 --- [  restartedMain] o.a.j.s.TldScanner                       : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[2024-06-19 15:49:21.806]  INFO 23400 --- [  restartedMain] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+[2024-06-19 15:49:21.806]  INFO 23400 --- [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1134 ms
+[2024-06-19 15:49:21.831]  INFO 23400 --- [  restartedMain] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+[2024-06-19 15:49:21.894]  INFO 23400 --- [  restartedMain] c.z.h.p.HikariPool                       : HikariPool-1 - Added connection org.mariadb.jdbc.Connection@4a906d75
+[2024-06-19 15:49:21.895]  INFO 23400 --- [  restartedMain] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+[2024-06-19 15:49:21.903]  INFO 23400 --- [  restartedMain] o.s.b.a.h.H2ConsoleAutoConfiguration     : H2 console available at '/h2-console'. Database available at 'jdbc:mariadb://localhost/webtoonBoot?user=root&password=***&serverTimezone=UTC&characterEncoding=UTF-8&createDatabaseIfNotExist=true'
+[2024-06-19 15:49:21.939]  WARN 23400 --- [  restartedMain] o.a.c.c.C.[.[.[/]                        : Cannot deserialize session attribute [cartMap] for session [8400B9826F217C409C673DB8E090D48C]
+[2024-06-19 15:49:22.001]  INFO 23400 --- [  restartedMain] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+[2024-06-19 15:49:22.043]  INFO 23400 --- [  restartedMain] o.h.Version                              : HHH000412: Hibernate ORM core version 6.2.22.Final
+[2024-06-19 15:49:22.044]  INFO 23400 --- [  restartedMain] o.h.c.Environment                        : HHH000406: Using bytecode reflection optimizer
+[2024-06-19 15:49:22.245]  INFO 23400 --- [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+[2024-06-19 15:49:22.287]  WARN 23400 --- [  restartedMain] o.h.d.Dialect                            : HHH000511: The 10.1.0 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.3.0. Check the community dialects project for available legacy versions.
+[2024-06-19 15:49:22.508]  INFO 23400 --- [  restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2024-06-19 15:49:22.512]  INFO 23400 --- [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2024-06-19 15:49:22.751]  WARN 23400 --- [  restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2024-06-19 15:49:23.053]  INFO 23400 --- [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+[2024-06-19 15:49:23.066]  INFO 23400 --- [  restartedMain] o.a.c.h.Http11NioProtocol                : Starting ProtocolHandler ["http-nio-8060"]
+[2024-06-19 15:49:23.088]  INFO 23400 --- [  restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8060 (http) with context path ''
+[2024-06-19 15:49:23.096]  INFO 23400 --- [  restartedMain] c.w.WebtoonBootCafe24Application         : Started WebtoonBootCafe24Application in 2.855 seconds (process running for 3.712)
+[2024-06-19 15:49:24.450]  INFO 23400 --- [nio-8060-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2024-06-19 15:49:24.450]  INFO 23400 --- [nio-8060-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+[2024-06-19 15:49:24.451]  INFO 23400 --- [nio-8060-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 1 ms
