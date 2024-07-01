@@ -1,8 +1,0 @@
-[2024-05-14 17:31:44.604]  INFO 16920 --- [n(12)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
-[2024-05-14 17:31:44.635]  INFO 16920 --- [n(12)-127.0.0.1] o.a.c.h.Http11NioProtocol                : Pausing ProtocolHandler ["http-nio-8060"]
-[2024-05-14 17:31:44.636]  INFO 16920 --- [n(12)-127.0.0.1] o.a.c.c.StandardService                  : Stopping service [Tomcat]
-[2024-05-14 17:31:44.638]  INFO 16920 --- [n(12)-127.0.0.1] o.a.c.c.C.[.[.[/]                        : Destroying Spring FrameworkServlet 'dispatcherServlet'
-[2024-05-14 17:31:44.642]  INFO 16920 --- [n(12)-127.0.0.1] o.a.c.h.Http11NioProtocol                : Stopping ProtocolHandler ["http-nio-8060"]
-[2024-05-14 17:31:44.649]  INFO 16920 --- [n(12)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-[2024-05-14 17:31:44.652]  INFO 16920 --- [n(12)-127.0.0.1] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
-[2024-05-14 17:31:44.656]  INFO 16920 --- [n(12)-127.0.0.1] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.

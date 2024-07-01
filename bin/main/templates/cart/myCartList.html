@@ -132,7 +132,6 @@
 	<script th:inline="javascript">
 		function selectValue(selectBox, value, goods_id, index,goods_price) {
 			var input = selectBox;
-			console.log(goods_price);
 			input.setAttribute("value", value);
 			modify_cart_qty(index, goods_id, value,goods_price);
 		}
@@ -154,7 +153,7 @@
 						$('.list_qty').eq(index).text(cart_goods_qty);
 						$('.goods_tot_price').eq(index).text(formattedTotal);
 						$('.goods_price').eq(index).text(goods_tot);
-						$('.goods_info_box')
+						$('.cartGood').eq(index).attr("price",goods_tot);
 						alert("수량을 변경했습니다!!");
 						
 					} else {

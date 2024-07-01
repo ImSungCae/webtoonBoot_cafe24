@@ -97,36 +97,44 @@ public class GoodsControllerImpl extends BaseController implements GoodsControll
 
 	// 퀵메뉴
 	private void addGoodsInQuick(String goods_id, GoodsVO goodsVO, HttpSession session) {
+		
 		// 중복체크를 위한 변수 초기화
 		boolean already_existed = false;
-
+		int duplicate_number = 0;
 		// 기존 퀵메뉴 리스트 quickGoodsList 할당
 		List<GoodsVO> quickGoodsList;
 		quickGoodsList = (ArrayList<GoodsVO>) session.getAttribute("quickGoodsList");
-
+		
+		
 		// 퀵메뉴에 리스트가 있을때
 		if (quickGoodsList != null) {
-
-			// 퀵메뉴 리스트에는 3개의 리스트만 표시할것임.
-			if (quickGoodsList.size() < 3) {
-				for (int i = 0; i < quickGoodsList.size(); i++) {
-					String _goodsBean = String.valueOf(quickGoodsList.get(i).getGoods_id());
-					// 상품id, goods_id가 동일하다면 already_existed=true, 코드종료.
-					if (goods_id.equals(_goodsBean)) {
-						already_existed = true;
-						break;
-					}
+			
+			for (int i = 0; i < quickGoodsList.size(); i++) {
+				String _goodsBean = String.valueOf(quickGoodsList.get(i).getGoods_id());
+				// 상품id, goods_id가 동일하다면 already_existed=true, 코드종료.
+				if (goods_id.equals(_goodsBean)) {
+					already_existed = true;
+					// 인덱스 번호를 저장시켜 중복일시에 인덱스번호에 해당하는 List 제거
+					duplicate_number = i;
+					break;
 				}
-				// already_existed이 false, 중복되지않는 새로운 상품일 경우 add
-				if (already_existed == false) {
-					quickGoodsList.add(goodsVO);
+			}
+			
+			// already_existed이 false, 중복되지않는 새로운 상품일 경우 add
+			if (already_existed == false) {
+				// 퀵메뉴 리스트에는 3개의 리스트만 표시할것임.
+				if (quickGoodsList.size() < 3) {
+					quickGoodsList.add(0,goodsVO);
+				}else {
+					// 퀵메뉴 리스트가 3개를 넘어가게 될경우
+					// 마지막 상품을 없애고 새로운 상품을 추가.
+					quickGoodsList.remove(2);
+					quickGoodsList.add(0,goodsVO);
 				}
-
-				// 퀵메뉴 리스트가 3개를 넘어가게 될경우
 			} else {
-				// 첫번재 상품을 없애고 새로운 상품을 추가.
-				quickGoodsList.remove(0);
-				quickGoodsList.add(goodsVO);
+				// 중복될 경우 중복된 리스트 삭제 후 추가
+				quickGoodsList.remove(duplicate_number);
+				quickGoodsList.add(0,goodsVO);
 			}
 
 			// 퀵메뉴에 리스트가 없을 경우 새 ArrayList생성 및 추가 add
@@ -134,7 +142,6 @@ public class GoodsControllerImpl extends BaseController implements GoodsControll
 			quickGoodsList = new ArrayList<GoodsVO>();
 			quickGoodsList.add(goodsVO);
 		}
-
 		// 위 작업을 완료 한 뒤 세션에 저장.
 		session.setAttribute("quickGoodsList", quickGoodsList);
 		session.setAttribute("quickGoodsListNum", quickGoodsList.size());
