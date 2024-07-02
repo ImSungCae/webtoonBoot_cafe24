@@ -3,7 +3,7 @@
 <div id="sticky">
 	<div>
 		<a
-			th:href="${session.isLogOn} ? '/cart/myCartList.do' : '/member/loginForm.do'">
+			th:href="${session.isLogOn == true} ? '/cart/myCartList.do' : '/member/loginForm.do'">
 			장바구니&nbsp;&nbsp;<span th:if="@{${session.isLogOn == true} and ${not #strings.isEmpty(session.memberInfo)}}" 
 					th:text="${session.cartCount}"></span></a>
 		<p>최근본상품</p>

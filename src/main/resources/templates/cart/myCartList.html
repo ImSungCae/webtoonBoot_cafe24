@@ -12,12 +12,12 @@
 	<div id="cart" class="detail_box">
 		<h2>장바구니</h2>
 		<div>
-			<th:block th:if="${#lists.isEmpty(session.cartMap.myCartList)}">
+			<th:block th:if="${#maps.isEmpty(session.cartMap)}">
 				<p class="emptyCart">장바구니에 상품이 없습니다.
 					<i class="fa-sharp fa-solid fa-cart-shopping fa-xl"></i>
 				</p>
 			</th:block>
-			<th:block th:unless="${#lists.isEmpty(session.cartMap.myCartList)}">
+			<th:block th:unless="${#maps.isEmpty(session.cartMap)}">
 				<form name="frm_order_all_cart" th:action="@{/order/orderAllCartGoods}" method="post">
 					<th:block th:each="item, cnt : ${session.cartMap.myGoodsList}">
 						<!-- 인덱스 초기화 -->
@@ -91,8 +91,10 @@
 		<!-- 전체선택  -->
 
 		<!-- 선택상품 가격표시 영역  -->
-		<div class="tot_price" th:with="myGoodsList=${session.cartMap.myGoodsList}, myCartList=${session.cartMap.myCartList},
-		totalDeliveryPrice = ${#lists.isEmpty(session.cartMap.myCartList)} ? 0 : 3000, 
+		<div class="tot_price" th:with="
+		myGoodsList = ${not #maps.isEmpty(session.cartMap)} ? ${session.cartMap.myGoodsList} : NULL,  
+		myCartList = ${not #maps.isEmpty(session.cartMap)} ? ${session.cartMap.myCartList} : NULL,
+		totalDeliveryPrice = ${#maps.isEmpty(session.cartMap)} ? 0 : 3000, 
 					totalGoodsPrice=0">
 
 			<th:block th:with="totalGoodsPrice=0">
@@ -108,17 +110,17 @@
 
 			<!--총 상품가격-->
 			<p>총 상품가격
-				<span id="goodsPrice" th:text="${totalGoodsPrice != 0 ? #numbers.formatInteger(totalGoodsPrice, 3, 'COMMA') : 0}"></span>원
+				<span id="goodsPrice" th:text="${totalGoodsPrice != 0 ? #numbers.formatInteger(totalGoodsPrice, 3, 'COMMA') : 0}"></span> 원
 			</p>
 			+
 			<!--총 배송비-->
 			<p>총 배송비
-				<span id="deliveryPrice" th:text="${#numbers.formatInteger(totalDeliveryPrice, 3, 'COMMA')}"></span>원
+				<span id="deliveryPrice" th:text="${totalDeliveryPrice != 0 ? #numbers.formatInteger(totalDeliveryPrice, 3, 'COMMA') : 0}"></span> 원
 			</p>
 			=
 			<!--총 주문금액-->
 			<p>총 주문금액
-				<span id="totalPrice" th:text="${#numbers.formatInteger(totalGoodsPrice + totalDeliveryPrice, 3, 'COMMA')}"></span>원
+				<span id="totalPrice" th:text="${totalGoodsPrice != 0 ? #numbers.formatInteger(totalGoodsPrice + totalDeliveryPrice, 3, 'COMMA') : 0}"></span>원
 			</p>
 			</th:block>
 		</div>

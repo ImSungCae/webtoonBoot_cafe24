@@ -26,12 +26,12 @@
 		</form>
 
 		<div class="order_history_box">
-			<th:block th:if="${#lists.isEmpty(myOrderHistList) }">
+			<th:block th:if="${#lists.isEmpty(session.myOrderHistList) }">
 				<p style="text-align: center;opacity: .5;">주문한 상품이 없습니다.</p>
 			</th:block>
-			<th:block th:unless="${#lists.isEmpty(myOrderHistList) }">
-				<th:block th:each="item : ${myOrderHistList}">
-					<th:block th:if="${item.order_id != ${#lists.get(myOrderHistList, item.index - 1)?.order_id}}">
+			<th:block th:unless="${#lists.isEmpty(session.myOrderHistList) }">
+				<th:block th:each="item : ${session.myOrderHistList}">
+					<th:block th:if="${item.order_id != ${#lists.get(session.myOrderHistList, item.index - 1)?.order_id}}">
 						<div class="history_detail_box">
 							<p>${item.pay_order_time } 주문</p>
 							<div class="history_goods_detail">

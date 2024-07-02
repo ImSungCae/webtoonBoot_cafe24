@@ -7,6 +7,14 @@
 		MyPage
 	</div>
 	<div class="mypageBox">
+			<h5>배송 준비중</h5>
+			
+			<!-- 배송 준비중 카운트 -->
+			<span th:text="${session.deliveryPreparedCount }"></span>
+			<!-- 배송 준비중 카운트 -->
+			
+		</div>
+	<div class="mypageBox">
 		<h5>배송중</h5>
 		
 		<!-- 배송중 카운트 -->
@@ -14,6 +22,15 @@
 		<!-- 배송중 카운트 -->
 		
 	</div>
+	
+	<div class="mypageBox">
+			<h5>배송 완료</h5>
+			
+			<!-- 배송 완료 카운트 -->
+			<span th:text="${session.finishedDeliveringCount }"></span>
+			<!-- 배송 완료 카운트 -->
+			
+		</div>
 	<div class="mypageBox">
 		<h5>장바구니</h5>
 		

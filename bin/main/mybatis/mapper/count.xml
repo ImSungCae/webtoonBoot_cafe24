@@ -19,6 +19,22 @@
 	    ]]>
 	</select>
 	
+	<!-- 배송 준비중 카운트-->
+	<select id="deliveryPreparedLen" parameterType="String" resultType="int">
+        <![CDATA[
+        select count(*) from t_shop_order
+			  where member_id = #{member_id} and delivery_state='delivery_prepared'
+	    ]]>
+	</select>
+	
+	<!-- 배송 완료 카운트 -->
+	<select id="finishedDeliveringdLen" parameterType="String" resultType="int">
+        <![CDATA[
+        select count(*) from t_shop_order
+			  where member_id = #{member_id} and delivery_state='finished_delivering'
+	    ]]>
+	</select>
+	
 	<!-- 싱픔 갯수 카운트 -->
 	<select id="goodsLen" resultType="int">
         <![CDATA[

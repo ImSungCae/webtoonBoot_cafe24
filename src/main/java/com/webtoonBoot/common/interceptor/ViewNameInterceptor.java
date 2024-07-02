@@ -31,6 +31,7 @@ public class ViewNameInterceptor implements HandlerInterceptor{
 			}
 			memberVO = (MemberVO) session.getAttribute("memberInfo");
 			if(memberVO == null) {
+				session.removeAttribute("isLogOn");
 			}else {
 				String member_id = memberVO.getMember_id();
 
@@ -42,6 +43,15 @@ public class ViewNameInterceptor implements HandlerInterceptor{
 				int deliveringCount = 0;
 				deliveringCount=sqlSession.selectOne("deliveringLen",member_id);
 				session.setAttribute("deliveringCount", deliveringCount);
+				
+				int deliveryPreparedCount = 0;
+				deliveryPreparedCount=sqlSession.selectOne("deliveryPreparedLen",member_id);
+				session.setAttribute("deliveryPreparedCount", deliveryPreparedCount);
+				
+				int finishedDeliveringCount = 0;
+				finishedDeliveringCount=sqlSession.selectOne("deliveryPreparedLen",member_id);
+				session.setAttribute("finishedDeliveringCount", finishedDeliveringCount);
+				
 				if(member_id.equals("admin") == true) {
 					int goodsLen = 0;
 					goodsLen=sqlSession.selectOne("goodsLen");

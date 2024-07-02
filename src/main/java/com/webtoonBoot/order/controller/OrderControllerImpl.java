@@ -52,7 +52,8 @@ public class OrderControllerImpl extends BaseController implements OrderControll
 			}
 		}
 
-		String viewName = (String) request.getAttribute("viewName");
+		/* String viewName = (String) request.getAttribute("viewName"); */
+		String viewName = "order/orderGoodsForm";
 		ModelAndView mav = new ModelAndView(viewName);
 
 		List myOrderList = new ArrayList<OrderVO>();
@@ -68,18 +69,23 @@ public class OrderControllerImpl extends BaseController implements OrderControll
 	@RequestMapping(value = "/orderAllCartGoods.do", method = RequestMethod.POST)
 	public ModelAndView orderAllCartGoods(@RequestParam("cart_goods_qty") String[] cart_goods_qty,
 			HttpServletRequest request, HttpServletResponse response) throws Exception {
-		String viewName = (String) request.getAttribute("viewName");
+//		String viewName = (String) request.getAttribute("viewName");
+		String viewName = "order/orderGoodsForm";
 		ModelAndView mav = new ModelAndView(viewName);
 		HttpSession session = request.getSession();
 		Map cartMap = (Map) session.getAttribute("cartMap");
 		List myOrderList = new ArrayList<OrderVO>();
-		
+
+		int total_order_price = 0;
+		int total_order_goods_qty = 0;
+		int total_delivery_price = 3000;
+		int final_total_order_price = 0;
 
 		List<GoodsVO> myGoodsList = (List<GoodsVO>) cartMap.get("myGoodsList");
 		MemberVO memberVO = (MemberVO) session.getAttribute("memberInfo");
 
 		for (int i = 0; i < cart_goods_qty.length; i++) {
-			if(cart_goods_qty[i].contains(":")) {
+			if (cart_goods_qty[i].contains(":")) {
 				String[] cart_goods = cart_goods_qty[i].split(":");
 				for (int j = 0; j < myGoodsList.size(); j++) {
 					GoodsVO goodsVO = myGoodsList.get(j);
@@ -95,12 +101,22 @@ public class OrderControllerImpl extends BaseController implements OrderControll
 						_orderVO.setGoods_fileName(goods_fileName);
 						_orderVO.setOrder_goods_qty(Integer.parseInt(cart_goods[1]));
 						myOrderList.add(_orderVO);
+
+						total_order_price += goods_price * Integer.parseInt(cart_goods[1]);
+						total_order_goods_qty += Integer.parseInt(cart_goods[1]);
 						break;
 					}
 				}
-				
+
 			}
 		}
+
+		final_total_order_price = total_order_price + total_delivery_price;
+		session.setAttribute("total_order_goods_qty", total_order_goods_qty);
+		session.setAttribute("total_order_price", total_order_price);
+		session.setAttribute("total_delivery_price", total_delivery_price);
+		session.setAttribute("final_total_order_price", final_total_order_price);
+
 		session.setAttribute("myOrderList", myOrderList);
 		session.setAttribute("orderer", memberVO);
 		return mav;
@@ -109,7 +125,7 @@ public class OrderControllerImpl extends BaseController implements OrderControll
 	@RequestMapping(value = "/payToOrderGoods.do", method = RequestMethod.POST)
 	public ModelAndView payToOrderGoods(@RequestParam Map<String, String> receiverMap, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		String viewName = (String) request.getAttribute("viewName");
+		String viewName = "order/orderResult";
 		ModelAndView mav = new ModelAndView(viewName);
 
 		HttpSession session = request.getSession();
@@ -120,6 +136,7 @@ public class OrderControllerImpl extends BaseController implements OrderControll
 		List<OrderVO> myOrderList = (List<OrderVO>) session.getAttribute("myOrderList");
 
 		for (int i = 0; i < myOrderList.size(); i++) {
+
 			OrderVO orderVO = (OrderVO) myOrderList.get(i);
 			orderVO.setMember_id(member_id);
 			orderVO.setReceiver_name(receiverMap.get("receiver_name"));
@@ -132,9 +149,11 @@ public class OrderControllerImpl extends BaseController implements OrderControll
 			orderVO.setPay_order_hp_num(receiverMap.get("pay_order_hp_num"));
 			orderVO.setOrder_hp(order_hp);
 			myOrderList.set(i, orderVO);
+
 		} // end for
 
 		orderService.addNewOrder(myOrderList);
+
 		mav.addObject("myOrderInfo", receiverMap);
 		mav.addObject("myOrderList", myOrderList);
 		return mav;

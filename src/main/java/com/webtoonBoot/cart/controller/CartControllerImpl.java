@@ -39,8 +39,7 @@ public class CartControllerImpl extends BaseController implements CartController
 		HttpSession session=request.getSession();
 		MemberVO memberVO=(MemberVO)session.getAttribute("memberInfo");
 		String member_id=memberVO.getMember_id();
-		
-		//회원정보에 맞는 장바구니 리스트를 불러온다. 
+		//회원정보에 맞는 장바구니 리스트를 불러온다.
 		cartVO.setMember_id(member_id);
 		Map<String ,List> cartMap=cartService.myCartList(cartVO);
 		session.setAttribute("cartMap", cartMap);
