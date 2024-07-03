@@ -43,7 +43,7 @@ public class GoodsControllerImpl extends BaseController implements GoodsControll
 
 	// 추천키워드
 	@RequestMapping(value = "/keywordSearch.do", method = RequestMethod.GET, produces = "application/text; charset=utf8")
-	public @ResponseBody String keywordSearch(@RequestParam("keyword") String keyword, HttpServletRequest request,
+	public @ResponseBody String keywordSearch(@RequestParam(name= "keyword") String keyword, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		response.setContentType("text/html;charset=utf-8");
 		response.setCharacterEncoding("utf-8");
@@ -72,6 +72,7 @@ public class GoodsControllerImpl extends BaseController implements GoodsControll
 		List<GoodsVO> goodsList = goodsService.searchGoods(searchWord);
 		ModelAndView mav = new ModelAndView(viewName);
 		mav.addObject("goodsList", goodsList);
+		mav.addObject("searchWord",searchWord);
 		return mav;
 	}
 

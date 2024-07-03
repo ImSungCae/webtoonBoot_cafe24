@@ -49,7 +49,7 @@ public class ViewNameInterceptor implements HandlerInterceptor{
 				session.setAttribute("deliveryPreparedCount", deliveryPreparedCount);
 				
 				int finishedDeliveringCount = 0;
-				finishedDeliveringCount=sqlSession.selectOne("deliveryPreparedLen",member_id);
+				finishedDeliveringCount=sqlSession.selectOne("finishedDeliveringdLen",member_id);
 				session.setAttribute("finishedDeliveringCount", finishedDeliveringCount);
 				
 				if(member_id.equals("admin") == true) {

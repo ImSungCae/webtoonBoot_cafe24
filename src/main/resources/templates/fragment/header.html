@@ -24,7 +24,7 @@
                     $.ajax({
                         type: "get",
                         async: true,
-                        url: "@{/goods/keywordSearch.do}",
+                        url: "/goods/keywordSearch.do",
                         data: {
                             keyword: value
                         },
@@ -117,7 +117,7 @@
             <img width="202" height="32" alt="로고 이미지" th:src="@{/image/webtoonfriends_logo.png}" />
         </a>
         <div id="search">
-            <form name="frmSearch" th:action="@{/goods/searchGoods.do}" method="post">
+            <form name="frmSearch" th:action="@{/goods/searchGoods.do}">
                 <input name="searchWord" class="main_input" type="text" id="searchWord" onkeyup="keywordSearch()" autocomplete="off" />
                 <button type="submit">
                     <i class="fa-sharp fa-solid fa-magnifying-glass fa-xl" style="color: #00dc64;"></i>
