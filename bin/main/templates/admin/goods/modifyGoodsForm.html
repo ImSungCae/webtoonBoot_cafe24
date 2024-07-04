@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/baseLayout}"
+	layout:fragment="body">
+
+<head>
+	<title>상품수정</title>
+</head>
+
+<body>
+	<th:block th:replace="~{layout/adminLayout :: adminLayoutFragment}"></th:block>
+
+	<script>
+		function readURL(input, preview) {
+			// alert(preview);
+			if (input.files && input.files[0]) {
+				var reader = new FileReader();
+				reader.onload = function (e) {
+					$('#' + preview).attr('src', e.target.result);
+				}
+				reader.readAsDataURL(input.files[0]);
+			}
+		}
+	</script>
+
+
+	<div class="detail_box goods_form">
+		<h2>상품수정</h2>
+		<form name="frm_modify_goods" method="post" enctype="multipart/form-data" th:each="goods : ${goodsMap.goods}"
+			th:action="@{/admin/goods/modifyGoodsInfo.do(goods_id=${goods.goods_id})}">
+			<table>
+				<tr>
+					<td>카테고리</td>
+					<td><select name="goods_sort">
+							<th:block th:switch="${goods.goods_sort}">
+								<th:block th:case="화산귀한">
+									<option value="화산귀환" selected>화산귀환</option>
+									<option value="물위의우리">물위의우리</option>
+									<option value="언덕위의제임스">언덕위의제임스</option>
+									<option value="바른연애길잡이">바른연애길잡이</option>
+								</th:block>
+								<th:block th:case="물위의우리">
+									<option value="화산귀환">화산귀환</option>
+									<option value="물위의우리" selected>물위의우리</option>
+									<option value="언덕위의제임스">언덕위의제임스</option>
+									<option value="바른연애길잡이">바른연애길잡이</option>
+								</th:block>
+								<th:block th:case="언덕위의제임스">
+									<option value="화산귀환">화산귀환</option>
+									<option value="물위의우리">물위의우리</option>
+									<option value="언덕위의제임스" selected>언덕위의제임스</option>
+									<option value="바른연애길잡이">바른연애길잡이</option>
+								</th:block>
+								<th:block th:case="바른연애길잡이">
+									<option value="화산귀환">화산귀환</option>
+									<option value="물위의우리">물위의우리</option>
+									<option value="언덕위의제임스">언덕위의제임스</option>
+									<option value="바른연애길잡이" selected>바른연애길잡이</option>
+								</th:block>
+							</th:block>
+						</select></td>
+				</tr>
+				<tr>
+					<td>상품이름</td>
+					<td>
+						<input type="text" placeholder="상품이름" th:value="${goods.goods_title }" name="goods_title">
+					</td>
+				</tr>
+				<tr>
+					<td>상품소개</td>
+					<td>
+						<input type="text" placeholder="상품소개" th:value="${goods.goods_writer_intro }"
+							name="goods_writer_intro">
+					</td>
+				</tr>
+				<tr>
+					<td>상품판매가격</td>
+					<td>
+						<input type="text" placeholder="상품판매가격" th:value="${goods.goods_price }" name="goods_price">
+					</td>
+				</tr>
+				<tr>
+					<td>배송비</td>
+					<td>
+						<input type="text" placeholder="배송비" th:value="${goods.goods_delivery_price }"
+							name="goods_delivery_price">
+					</td>
+				</tr>
+				<tr>
+					<td>상품배송일</td>
+					<td>
+						<input type="date" th:value="${goods.goods_delivery_date }" name="goods_delivery_date">
+					</td>
+				</tr>
+				<tr>
+					<td>상품분류</td>
+					<td>
+						<select name="goods_status">
+							<option value="bestgoods">인기굿즈</option>
+							<option value="newgoods">신규굿즈</option>
+							<option value="on_sale">판매중</option>
+							<option value="buy_out">품절</option>
+						</select>
+						<input type="hidden" name="h_goods_status" th:value="${goods.goods_status }">
+					</td>
+				</tr>
+				<th:block th:each="item : ${goodsMap.imageFileList}">
+					<th:block th:if="${#strings.equals(item.fileType,'main_image')}">
+						<tr>
+							<td>메인 상품 이미지</td>
+							<td>메인 이미지 
+								<input type="file" id="main_image" name="main_image"
+								onchange="readURL(this,'previewMain');">
+								<input type="hidden" name="image_id" th:value="${item.image_id }">
+								<img id="previewMain" width="150"
+									th:src="@{/download.do(goods_id=${item.goods_id},fileName=${item.fileName})}">
+							</td>
+						</tr>
+					</th:block>
+					<th:block th:unless="${#strings.equals(item.fileType,'main_image')}">
+						<tr>
+							<td>상품 상세 이미지</td>					
+							<td>상세 이미지 
+								<input type="file" id="detail_image" name="detail_image"
+								onchange="readURL(this,'previewSub');">
+								<input type="hidden" name="image_id" th:value="${item.image_id }">
+								<img id="previewSub" width="150" style="background-size: cover;"
+									th:src="@{/download.do(goods_id=${item.goods_id},fileName=${item.fileName})}">
+							</td>
+						</tr>
+					</th:block>
+				</th:block>
+			</table>
+			<button type="submit">수정하기</button>
+		</form>
+	</div>
+
+
+</body>
+
+</html>

@@ -44,8 +44,6 @@ public class AdminGoodsControllerImpl extends BaseController implements AdminGoo
 		session = request.getSession();
 
 		String fixedSearchPeriod = dateMap.get("fixedSearchPeriod");
-		String section = dateMap.get("section");
-		String pageNum = dateMap.get("pageNum");
 		String beginDate = null, endDate = null;
 
 		
@@ -57,14 +55,6 @@ public class AdminGoodsControllerImpl extends BaseController implements AdminGoo
 
 		Map<String, Object> condMap = new HashMap<String, Object>();
 		
-		if(section== null) {
-			section = "1";
-		}
-		condMap.put("section",section);
-		if(pageNum== null) {
-			pageNum = "1";
-		}
-		condMap.put("pageNum",pageNum);
 
 		condMap.put("beginDate", beginDate);
 		condMap.put("endDate", endDate);
@@ -79,9 +69,6 @@ public class AdminGoodsControllerImpl extends BaseController implements AdminGoo
 		mav.addObject("endYear", endDate2[0]);
 		mav.addObject("endMonth", endDate2[1]);
 		mav.addObject("endDay", endDate2[2]);
-
-		mav.addObject("section", section);
-		mav.addObject("pageNum", pageNum);
 		return mav;
 
 	}

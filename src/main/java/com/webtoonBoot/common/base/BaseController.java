@@ -56,7 +56,7 @@ public class BaseController {
 		endDate = endYear + "-" + endMonth + "-" + endDay;
 
 		if (fixedSearchPeriod == null) {
-			cal.add(cal.MONTH, -1);
+			cal.add(cal.MONTH, -12);
 		} else if (fixedSearchPeriod.equals("today")) {
 			cal.add(Calendar.DAY_OF_YEAR, -0);
 		} else if (fixedSearchPeriod.equals("one_month")) {

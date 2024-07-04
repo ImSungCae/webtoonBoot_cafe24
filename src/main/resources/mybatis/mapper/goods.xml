@@ -36,8 +36,7 @@
 			select g.*,d.fileName from t_shop_goods g, t_goods_image d
         	where g.goods_id=d.goods_id 
         	and d.filetype='main_image'
-        	and goods_status=#{goodsStatus}
-            order by g.goods_credate desc)  t
+        	and goods_status=#{goodsStatus})  t order by goods_creDate desc
 	    ]]>
 	</select>
 

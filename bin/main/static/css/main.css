@@ -1340,10 +1340,10 @@ select.danger{
 	background-color: rgb(210,210,210);
 	font-weight: bold;
 }
-.goods_form table tr:last-of-type td:first-of-type{
+/*.goods_form table tr:last-of-type td:first-of-type{
 	background: none;
 	font-weight: normal;
-}
+}*/
 
 .goods_form table input,select{
 	padding: 5px;
@@ -1362,6 +1362,9 @@ select.danger{
 .pages{
 	width: 50%;
 	margin:20px auto;
+	display: flex;
+	justify-content: center;
+	gap: 10px;
 
 }
 .pages a{
@@ -1373,6 +1376,11 @@ select.danger{
 	text-align:center;
 	border:1px solid rgb(227,227,227);
 	background-color: rgb(210,210,210,.5);
+}
+.pages a.active{
+	color: #fff;
+	border:1px solid rgb(227,227,227);
+	background-color: #000;
 }
 
 /* footer */

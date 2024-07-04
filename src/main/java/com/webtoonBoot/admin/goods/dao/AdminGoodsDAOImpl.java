@@ -1,5 +1,6 @@
 package com.webtoonBoot.admin.goods.dao;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -21,7 +22,7 @@ public class AdminGoodsDAOImpl implements AdminGoodsDAO {
 	@Override
 	public int insertNewGoods(Map newGoodsMap) throws DataAccessException {
 		sqlSession.insert("mapper.admin.goods.insertNewGoods", newGoodsMap);
-		return Integer.parseInt((String) newGoodsMap.get("goods_id"));
+		return ((BigInteger) newGoodsMap.get("goods_id")).intValue();
 	}
 
 	@Override
