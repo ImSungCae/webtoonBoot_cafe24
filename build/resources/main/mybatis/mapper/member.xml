@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.member">
+	<!-- 리절트 맵 정의 -->
+	<resultMap id="memberResult" type="memberVO">
+		<result property="member_id" column="member_id" />
+		<result property="member_pwd" column="member_pwd" />
+		<result property="member_name" column="member_name" />
+		<result property="hp1" column="hp1" />
+		<result property="zipcode" column="zipcode" />
+		<result property="address" column="address" />
+		<result property="subAddress" column="subAddress" />
+		<result property="joinDate" column="joinDate" />
+		<result property="del_yn" column="del_yn" />
+	</resultMap>
+
+	<select id="login" resultType="memberVO"
+		parameterType="java.util.Map">
+	    <![CDATA[
+			select * from t_shop_member 
+			 where member_id=#{member_id}
+			 and member_pwd=#{member_pwd}			
+			 
+		]]>
+	</select>
+
+	<select id="selectOverlappedID" parameterType="String"
+		resultType="String">
+		<!--Oracle 쿼리-->
+		<!--select decode(count(*),1, 'true', 0, 'false')
+		from t_shop_member
+		where member_id = #{id}-->
+		<!--MariaDB 쿼리-->
+	    SELECT
+	        CASE
+	            WHEN COUNT(*) = 1 THEN 'true'
+	            ELSE 'false'
+	        END AS existence
+	    FROM
+	        t_shop_member
+	    WHERE
+	        member_id = #{member_id}
+		
+	</select>
+
+	<insert id="insertNewMember" parameterType="memberVO">
+  <![CDATA[
+    	insert into t_shop_member(member_id,
+				 					 member_pwd,
+                                     member_name,
+                                     hp1,zipcode,address,subAddress)
+							 values(#{member_id},
+									#{member_pwd},
+									#{member_name},
+                                    #{hp1},#{zipcode},#{address},#{subAddress})
+                                  
+                                      
+   ]]>
+	</insert>
+</mapper>

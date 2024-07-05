@@ -78,7 +78,7 @@
 			select * from t_shop_order
 			where DATE_FORMAT(pay_order_time,'yyyy-mm-dd')=DATE_FORMAT(sysdate,'yyyy-mm-dd') 
         	and member_id=#{member_id}
-        	order by pay_order_time desc
+        	order by order_id desc
 		]]>
 	</select>
 
@@ -88,7 +88,7 @@
 		    select * from t_shop_order
             where DATE_FORMAT(pay_order_time,'yyyy-mm-dd')=DATE_FORMAT(sysdate,'yyyy-mm-dd') 
             and order_id=#{order_id}
-            order by pay_order_time desc
+            order by order_id desc
     	]]>
 	</select>
 

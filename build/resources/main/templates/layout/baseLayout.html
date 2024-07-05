@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+	<th:block th:replace="~{fragment/config :: configFragment}"></th:block>
+	<title layout:title-pattern="$LAYOUT_TITLE : $CONTENT_TITLE">웹툰 굿즈샵</title>
+</head>
+
+<body>
+	<div id="outer_wrap">
+		<header th:replace="~{fragment/header :: headerFragment}"></header>
+		<th:block th:replace="~{fragment/quickMenu :: quickMenuFragment}"></th:block>
+		<div id="wrap">
+			<article>
+				<th:block layout:fragment="mypage"></th:block>
+				<th:block layout:fragment="body"></th:block>
+			</article>
+		</div>
+		<footer th:replace="~{fragment/footer :: footerFragment}"></footer>
+	</div>
+</body>
+
+</html>

@@ -29,6 +29,8 @@ public class OrderControllerImpl extends BaseController implements OrderControll
 	private OrderService orderService;
 	@Autowired
 	private OrderVO orderVO;
+	
+	
 
 	@RequestMapping(value = "/orderEachGoods.do", method = RequestMethod.POST)
 	public ModelAndView orderEachGoods(@ModelAttribute("orderVO") OrderVO _orderVO, HttpServletRequest request,
@@ -37,6 +39,11 @@ public class OrderControllerImpl extends BaseController implements OrderControll
 		HttpSession session = request.getSession();
 		session = request.getSession();
 
+		int total_order_price = 0;
+		int total_order_goods_qty = 0;
+		int total_delivery_price = 3000;
+		int final_total_order_price = 0;
+		
 		Boolean isLogOn = (Boolean) session.getAttribute("isLogOn");
 		String action = (String) session.getAttribute("action");
 		if (isLogOn == null || isLogOn == false) {
@@ -56,10 +63,20 @@ public class OrderControllerImpl extends BaseController implements OrderControll
 		String viewName = "order/orderGoodsForm";
 		ModelAndView mav = new ModelAndView(viewName);
 
+		total_order_goods_qty = orderVO.getOrder_goods_qty();
+		total_order_price = orderVO.getGoods_price() * total_order_goods_qty;
+		final_total_order_price = total_order_price + total_delivery_price;
+		
+		
 		List myOrderList = new ArrayList<OrderVO>();
 		myOrderList.add(orderVO);
 
 		MemberVO memberInfo = (MemberVO) session.getAttribute("memberInfo");
+		
+		session.setAttribute("total_order_price",total_order_price);
+		session.setAttribute("total_order_goods_qty",total_order_goods_qty);
+		session.setAttribute("total_delivery_price",total_delivery_price);
+		session.setAttribute("final_total_order_price",final_total_order_price);
 
 		session.setAttribute("myOrderList", myOrderList);
 		session.setAttribute("orderer", memberInfo);
@@ -153,7 +170,6 @@ public class OrderControllerImpl extends BaseController implements OrderControll
 		} // end for
 
 		orderService.addNewOrder(myOrderList);
-
 		mav.addObject("myOrderInfo", receiverMap);
 		mav.addObject("myOrderList", myOrderList);
 		return mav;

@@ -66,7 +66,7 @@
 										th:value="${cart_goods_qty}">
 
 									<!-- 주문하기 -->
-									<a th:onclick="javascript:fn_order_each_goods('${item.goods_id}', '${item.goods_title}', '${item.goods_price}', '${item.goods_fileName}');"
+									<a th:onclick="javascript:fn_order_each_goods([[${item.goods_id}]], [[${item.goods_title}]], [[${item.goods_price}]], [[${item.goods_fileName}]]);"
 										style="width: 150px;">주문하기</a>
 
 									<!-- 삭제하기 -->
@@ -221,7 +221,7 @@
 			var i_goods_price = document.createElement("input");
 			var i_fileName = document.createElement("input");
 			var i_order_goods_qty = document.createElement("input");
-
+			
 			i_goods_id.name = "goods_id";
 			i_goods_title.name = "goods_title";
 			i_goods_price.name = "goods_price";

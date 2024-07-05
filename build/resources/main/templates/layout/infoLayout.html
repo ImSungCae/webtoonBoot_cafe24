@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lagn="ko" xmlns:th="http://www.thymeleaf.org" th:fragment="infoLayoutFragment">
+	
+<!-- 인포레이아웃 컨테이너  -->
+<div class="container">
+	<div class="mypageBox">
+		MyPage
+	</div>
+	<div class="mypageBox">
+			<h5>배송 준비중</h5>
+			
+			<!-- 배송 준비중 카운트 -->
+			<span th:text="${session.deliveryPreparedCount }"></span>
+			<!-- 배송 준비중 카운트 -->
+			
+		</div>
+	<div class="mypageBox">
+		<h5>배송중</h5>
+		
+		<!-- 배송중 카운트 -->
+		<span th:text="${session.deliveringCount }"></span>
+		<!-- 배송중 카운트 -->
+		
+	</div>
+	
+	<div class="mypageBox">
+			<h5>배송 완료</h5>
+			
+			<!-- 배송 완료 카운트 -->
+			<span th:text="${session.finishedDeliveringCount }"></span>
+			<!-- 배송 완료 카운트 -->
+			
+		</div>
+	<div class="mypageBox">
+		<h5>장바구니</h5>
+		
+		<!-- 장바구니 카운트 -->
+		<span th:text="${session.cartCount }"></span>
+		<!-- 장바구니 카운트 -->
+		
+	</div>
+	<div class="mypageBox lastbox">
+		<h5 th:text="${session.memberInfo.member_name  + '님 환영합니다!'}"></h5>
+	</div>
+		
+	<!-- side 메뉴 -->
+	<div class="side">
+		<b>마이페이지</b><br>
+		<a href="/mypage/listMyOrderHistory.do">주문목록</a><br>
+		<a href="/cart/myCartList.do">장바구니</a><br>
+		<a href="/mypage/myDetailInfo.do">내정보</a>
+	</div>
+	<!-- side 메뉴 -->
+</div> 
+<!-- 인포레이아웃 컨테이너  -->
+
+</html>

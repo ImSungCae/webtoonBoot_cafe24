@@ -12,6 +12,13 @@ java {
 	sourceCompatibility = '17'
 }
 
+bootWar{
+	archiveBaseName = 'webtoonBoot_cafe24'
+	archiveFileName = 'ROOT.war'
+	archiveVersion = "0.0.0"
+
+}
+
 configurations {
 	compileOnly {
 		extendsFrom annotationProcessor

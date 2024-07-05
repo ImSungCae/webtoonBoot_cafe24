@@ -17,9 +17,9 @@ import net.coobird.thumbnailator.Thumbnails;
 public class FileDownloadController {
 	
 //	로컬용
-	private static final String CURR_IMAGE_REPO_PATH = "C:/webtoonfriends_repo/file_repo";
+//	private static final String CURR_IMAGE_REPO_PATH = "C:/webtoonfriends_repo/file_repo";
 //	배포용(아직 미적용)
-//	private static final String CURR_IMAGE_REPO_PATH = "/webtoonfriends_repo/file_repo";
+	private static final String CURR_IMAGE_REPO_PATH = "/lschmhj/tomcat/webapps/file_repo";
 	@RequestMapping("/download.do")
 	protected void download(@RequestParam("fileName") String fileName,
 		                 	@RequestParam("goods_id") String goods_id,

@@ -33,25 +33,25 @@
 					<td>카테고리</td>
 					<td><select name="goods_sort">
 							<th:block th:switch="${goods.goods_sort}">
-								<th:block th:case="화산귀한">
+								<th:block th:if="${#strings.equals(goods.goods_sort,'화산귀환')}">
 									<option value="화산귀환" selected>화산귀환</option>
 									<option value="물위의우리">물위의우리</option>
 									<option value="언덕위의제임스">언덕위의제임스</option>
 									<option value="바른연애길잡이">바른연애길잡이</option>
 								</th:block>
-								<th:block th:case="물위의우리">
+								<th:block th:if="${#strings.equals(goods.goods_sort,'물위의우리')}">
 									<option value="화산귀환">화산귀환</option>
 									<option value="물위의우리" selected>물위의우리</option>
 									<option value="언덕위의제임스">언덕위의제임스</option>
 									<option value="바른연애길잡이">바른연애길잡이</option>
 								</th:block>
-								<th:block th:case="언덕위의제임스">
+								<th:block th:if="${#strings.equals(goods.goods_sort,'언덕위의제임스')}">
 									<option value="화산귀환">화산귀환</option>
 									<option value="물위의우리">물위의우리</option>
 									<option value="언덕위의제임스" selected>언덕위의제임스</option>
 									<option value="바른연애길잡이">바른연애길잡이</option>
 								</th:block>
-								<th:block th:case="바른연애길잡이">
+								<th:block th:if="${#strings.equals(goods.goods_sort,'바른연애길잡이')}">
 									<option value="화산귀환">화산귀환</option>
 									<option value="물위의우리">물위의우리</option>
 									<option value="언덕위의제임스">언덕위의제임스</option>

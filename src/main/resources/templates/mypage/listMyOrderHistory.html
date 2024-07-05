@@ -27,27 +27,29 @@
 
 		<div class="order_history_box" th:with="pre_order_id=0">
 
-			<!-- 주문목록이 비어있을때 -->			
+			<!-- 주문목록이 비어있을때 -->
 			<th:block th:if="${#lists.isEmpty(myOrderHistList) }">
 				<p style="text-align: center;opacity: .5;">주문한 상품이 없습니다.</p>
 			</th:block>
-			
+
 			<!-- 주문목록이 있을 때 -->
 			<th:block th:unless="${#lists.isEmpty(myOrderHistList) }">
 				<th:block th:each="item, stat : ${myOrderHistList}">
 					<th:block th:if="${item.order_id != pre_order_id}">
-						<th:block th:with = "pre_order_id = ${item.order_id}">
-							
-						
+						<th:block th:with="pre_order_id = ${item.order_id}">
+
+
 							<div class="history_detail_box">
-								<p th:text="${item.pay_order_time} + '주문'"></p>
+								<p th:text="${item.pay_order_time} + ' 주문'"></p>
 								<div class="history_goods_detail">
-									<p th:if="${item.delivery_state=='delivery_prepared' }">배송준비중</p>
-									<p th:if="${item.delivery_state=='finished_delivering' }">배송완료</p>
-									<p th:if="${item.delivery_state=='cancel_order' }">주문취소</p>
-									<p th:if="${item.delivery_state=='returning_goods' }">반품중</p>
-									<p th:if="${item.delivery_state=='exchange_goods' }">교환중</p>
-	
+									<th:block th:switch="${item.delivery_state}">
+										<p th:case="delivery_prepared" th:text="'주문번호 : ' + ${item.order_id} +'&nbsp; | &nbsp;배송준비중'"></p>
+										<p th:case="finished_delivering" th:text="'주문번호 : ' + ${item.order_id} +'&nbsp; | &nbsp;배송완료'"></p>
+										<p th:case="cancel_order" th:text="'주문번호 : ' + ${item.order_id} +'&nbsp; | &nbsp;주문취소'"></p>
+										<p th:case="returning_goods" th:text="'주문번호 : ' + ${item.order_id} +'&nbsp; | &nbsp;반품중'"></p>
+										<p th:case="exchange_goods" th:text="'주문번호 : ' + ${item.order_id} +'&nbsp; | &nbsp;교환중'"></p>
+									</th:block>
+
 									<th:block th:each="item2 : ${myOrderHistList}">
 										<th:block th:if="${item.order_id == item2.order_id }">
 											<div class="goods_detail_box">
@@ -56,7 +58,8 @@
 												<div>
 													<a th:href="@{/goods/goodsDetail.do(goods_id=${item2.goods_id })}">
 														<p th:text="${item2.goods_title}"></p>
-														<span th:text="${item2.order_goods_qty}"></span> 개 <span> · </span>
+														<span th:text="${item2.order_goods_qty}"></span> 개 <span> ·
+														</span>
 														<span
 															th:text="${#numbers.formatInteger(item2.goods_price * item2.order_goods_qty, 3,'COMMA')}"></span>
 														원
@@ -64,28 +67,28 @@
 												</div>
 											</div>
 										</th:block>
-	
+
 									</th:block>
-	
+
 									<th:block
 										th:if="${item.delivery_state != 'cancel_order' and item.delivery_state != 'returning_goods' and item.delivery_state != 'exchange_goods'}">
 										<div class="modi_state">
-												<th:block th:if="${item.delivery_state=='delivery_prepared' }">
-													<button th:attr="onclick=|fn_edit_order('${item.order_id}','cancel')|"
-														style="width: 150px;">주문취소</button>
-												</th:block>
-												<th:block th:if="${item.delivery_state=='finished_delivering' }">
-													<button th:attr="onclick=|fn_edit_order('${item.order_id}','exchange')|"
-														style="width: 150px;">교환신청</button>
-													<button th:attr="onclick=|fn_edit_order('${item.order_id}','return')|"
-														style="width: 150px;">반품신청</button>
-												</th:block>
+											<th:block th:if="${item.delivery_state=='delivery_prepared' }">
+												<button th:attr="onclick=|fn_edit_order('${item.order_id}','cancel')|"
+													style="width: 150px;">주문취소</button>
+											</th:block>
+											<th:block th:if="${item.delivery_state=='finished_delivering' }">
+												<button th:attr="onclick=|fn_edit_order('${item.order_id}','exchange')|"
+													style="width: 150px;">교환신청</button>
+												<button th:attr="onclick=|fn_edit_order('${item.order_id}','return')|"
+													style="width: 150px;">반품신청</button>
+											</th:block>
 										</div>
-	
+
 									</th:block>
 								</div>
-	
-	
+
+
 							</div>
 						</th:block>
 					</th:block>

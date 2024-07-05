@@ -2,12 +2,116 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/baseLayout}"
 	layout:fragment="body">
-	
-	<head>
-		<title>주문 결과</title>
-	</head>
-	
-	<body>
-		<p th:text="${session.final_total_order_price}"></p>
-	</body>
+
+<head>
+	<title>주문 결과</title>
+</head>
+
+<body>
+	<div id="order_result">
+		<div>
+			<h2>
+				<span>주문이 정상적으로 완료</span>되었습니다.
+			</h2>
+
+			<table class="order_goods_info">
+				<h3>상품 정보</h3>
+				<tr>
+					<td>주문번호</td>
+					<td>주문상품</td>
+					<td>수량</td>
+					<td>상품금액</td>
+					<td>배송비</td>
+					<td>주문금액합계</td>
+				</tr>
+				<tr>
+					<td th:rowspan="${#lists.size(myOrderList) }" th:text="${myOrderList[0].order_id }"></td>
+					<td><a th:href="@{/goods/goodsDetail.do(goods_id=${myOrderList[0].goods_id })}">
+							<img th:src="@{/thumbnails.do(goods_id=${myOrderList[0].goods_id},fileName=${myOrderList[0].goods_fileName})}"
+								width="75">
+							<p th:text="${myOrderList[0].goods_title }"></p>
+						</a></td>
+					<td>
+						<h5 th:text="${myOrderList[0].order_goods_qty }"></h5>
+					</td>
+					<td th:text="${#numbers.formatInteger(myOrderList[0].order_goods_qty*myOrderList[0].goods_price,3,'COMMA')} + ' 원'"></td>
+					<td th:rowspan="${#lists.size(myOrderList) } " th:text="${#numbers.formatInteger(session.total_delivery_price,3,'COMMA')} + ' 원'"></td>
+					<td th:rowspan="${#lists.size(myOrderList) }" th:text="${#numbers.formatInteger(session.final_total_order_price,3,'COMMA')} + ' 원'">
+					</td>
+				</tr>
+				<th:block th:if="${#lists.size(myOrderList) > 1}">
+					<th:block th:each="item, iterStat : ${myOrderList}">
+						<tr th:if="${iterStat.index > 0}">
+							<td><a th:href="@{/goods/goodsDetail.do(goods_id=${item.goods_id })}">
+									<img th:src="@{/thumbnails.do(goods_id=${item.goods_id},fileName=${item.goods_fileName})}"
+										width="75">
+									<p th:text="${item.goods_title}"></p>
+								</a></td>
+							<td>
+								<h5 th:text="${item.order_goods_qty}"></h5>
+							</td>
+							<td th:text="${item.order_goods_qty * item.goods_price} + ' 원'"></td>
+						</tr>
+						
+					</th:block>
+				</th:block>
+			</table>
+
+			<table class="orderPage_info order_table">
+				<h3>주문자</h3>
+				<tr>
+					<td>이름</td>
+					<td th:text="${session.orderer.member_name}"></td>
+				</tr>
+				<tr>
+					<td>휴대폰 번호</td>
+					<td th:text="${session.orderer.hp1}"></td>
+				</tr>
+			</table>
+
+			<table class="receiver_info order_table">
+				<h3>배송지 정보</h3>
+				<tr>
+					<td>수령인</td>
+					<td th:text="${myOrderInfo.receiver_name}"></td>
+				</tr>
+				<tr>
+					<td>휴대폰 번호</td>
+					<td th:text="${myOrderInfo.receiver_hp1}"></td>
+				</tr>
+				<tr>
+					<td>주소</td>
+					<td th:utext="${myOrderInfo.delivery_address }"></td>
+				</tr>
+
+			</table>
+
+			<table class="pay_info order_table">
+				<h3>결제 정보</h3>
+				<tr>
+					<td>결제방법</td>
+					<td th:text="${myOrderInfo.pay_method }"></td>
+				</tr>
+				<tr>
+					<td>결제카드</td>
+					<td th:text="${myOrderInfo.card_com_name }"></td>
+				</tr>
+				<tr>
+					<td>할부기간</td>
+					<td th:text="${myOrderInfo.card_pay_month }"></td>
+				</tr>
+
+			</table>
+			<button onclick="location.href='/mypage/listMyOrderHistory.do'">주문목록 보기</button>
+			<button onclick="location.href='/main/main.do'">쇼핑 계속하기</button>
+
+
+		</div>
+
+
+
+	</div>
+
+</body>
+
 </html>

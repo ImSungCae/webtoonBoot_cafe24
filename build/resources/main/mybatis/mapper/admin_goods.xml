@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.admin.goods">
+	<resultMap type="goodsVO" id="goodsResult">
+		<result property="goods_id" column="goods_id"/>
+		<result property="goods_sort" column="goods_sort" />
+		<result property="goods_title" column="goods_title" />
+		<result property="goods_writer_intro"
+			column="goods_writer_intro" />
+		<result property="goods_price" column="goods_price" />
+		<result property="goods_delivery_price"
+			column="goods_delivery_price" />
+		<result property="goods_delivery_date"
+			column="goods_delivery_date" />
+		<result property="goods_fileName" column="fileName" />
+		<result property="goods_status" column="goods_status" />
+		<result property="goods_creDate" column="goods_creDate" />
+	</resultMap>
+
+	<resultMap id="imageResult" type="ImageFileVO">
+		<result property="goods_id" column="goods_id" />
+		<result property="fileName" column="fileName" />
+		<result property="reg_id" column="reg_id" />
+		<result property="image_id" column="image_id" />
+		<result property="fileType" column="fileType" />	
+	</resultMap>
+
+	<!-- 상품관리 - 상품리스트 -->
+		<!-- select a.*, rownum as rnum from
+		(select * from t_shop_goods 
+        where  to_char(goods_credate,'yyyy-mm-dd')  
+        between #{beginDate} and #{endDate}
+		order by goods_id desc) a --> 
+	<!-- MySQL/MariaDB 에서 ROWNUM 사용하기 위해선 SET으로 지정후 사용해야함--> 
+	<select id="selectNewGoodsList" resultMap="goodsResult"
+		parameterType="java.util.Map">
+	    <![CDATA[
+	    SET @rowNum:=0;
+	    select * from (
+	    	select a.*,@rowNum:=@rowNum+1 as rnum from(
+	    		(select * from t_shop_goods
+	    		where  DATE_FORMAT(goods_credate,'%Y-%m-%d')  
+		        between #{beginDate} and #{endDate}
+				order by goods_id asc)
+	    	) a
+	    ) b
+		order by rnum desc;
+    	]]>
+	</select>
+
+
+	<!-- 상품추가 - 상품정보 -->
+	<insert id="insertNewGoods" parameterType="java.util.Map" useGeneratedKeys="true"
+	keyProperty="goods_id" keyColumn="goods_id">
+	    <![CDATA[
+		   insert into t_shop_goods(
+		                goods_id, 
+		                goods_sort,
+                    	goods_title,
+                    	goods_writer_intro,
+						goods_price,
+						goods_delivery_price,
+						goods_delivery_date,
+						goods_status)
+					  			values(
+					  			      #{goods_id},
+					  			      #{goods_sort},
+					  			      #{goods_title},
+					  			      #{goods_writer_intro},
+					  			      #{goods_price},
+					  			      #{goods_delivery_price},
+					  			      #{goods_delivery_date},
+					  			      #{goods_status}
+					 			 )
+		]]>
+	</insert>
+
+
+
+
+
+	<!-- 상품추가 - 이미지 -->
+	<insert id="insertGoodsImageFile" parameterType="imageFileVO">
+	    <![CDATA[
+		   insert into t_goods_image (image_id,
+		                                     goods_id,
+											fileName,
+											fileType,
+											reg_id)
+											 values(#{image_id},
+											   		#{goods_id},
+											   		#{fileName},
+											   		#{fileType},
+											   		#{reg_id} )
+		]]>
+	</insert>
+
+
+
+
+
+	<!-- 상품삭제 - 상품정보 삭제 -->
+	<delete id="deleteGoods" parameterType="int">
+	    <![CDATA[
+	    delete from t_shop_goods where goods_id = #{goods_id}    
+    	]]>
+	</delete>
+
+
+	<!-- 상품삭제 - 이미지 삭제 -->
+	<delete id="deleteimages" parameterType="int">
+	    <![CDATA[   
+		delete from t_goods_image where goods_id = #{goods_id}
+    	]]>
+	</delete>
+
+
+
+
+
+
+	<select id="selectGoodsDetail" resultMap="goodsResult"
+		parameterType="int">
+	    <![CDATA[
+		     select g.*,DATE_FORMAT(g.goods_creDate,'%Y-%m-%d') as goods_creDate, d.fileName from t_shop_goods g, t_goods_image d
+	        where g.goods_id=d.goods_id
+	        and d.filetype='main_image'
+	        and g.goods_id=#{goods_id}
+	        order by g.goods_id
+    	]]>
+	</select>
+	<select id="selectGoodsImageFileList" resultMap="imageResult"
+		parameterType="int">
+	    <![CDATA[
+		    	select * from  t_goods_image 
+		    	where  
+			    goods_id=#{goods_id}
+			    order by image_id asc
+    	]]>
+	</select>
+
+
+	<!-- 상품수정 - 상품정보 -->
+	<update id="modifyGoods" parameterType="java.util.Map">
+
+	    <![CDATA[
+		   update t_shop_goods
+			set
+		                goods_sort = #{goods_sort},
+                    	goods_title = #{goods_title},
+                    	goods_writer_intro = #{goods_writer_intro},
+						goods_price = #{goods_price},
+						goods_delivery_price = #{goods_delivery_price},
+						goods_delivery_date = #{goods_delivery_date},
+						goods_status = #{goods_status}
+			where
+			goods_id= #{goods_id} 						
+					  			
+		]]>
+	</update>
+
+
+	<!-- 상품수정 - 이미지 -->
+	<update id="modifyimages" parameterType="imageFileVO">
+	    <![CDATA[
+		   update t_goods_image
+			set					
+						fileType = #{fileType}
+			where
+			goods_id= #{goods_id} 
+			and fileName = #{fileName}
+		]]>
+	</update>
+
+</mapper>

@@ -22,7 +22,7 @@ import jakarta.servlet.http.HttpServletResponse;
 public class BaseController {
 
 	
-	private static final String CURR_IMAGE_REPO_PATH = "C:\\webtoonfriends_repo\\file_repo";
+	private static final String CURR_IMAGE_REPO_PATH = "/lschmhj/tomcat/webapps/file_repo";
 
 	@RequestMapping(value = "/*.do", method = { RequestMethod.POST, RequestMethod.GET })
 	protected ModelAndView viewForm(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -87,14 +87,14 @@ public class BaseController {
 			imageFileVO.setFileName(originalFileName);
 			fileList.add(imageFileVO);
 
-			File file = new File(CURR_IMAGE_REPO_PATH + "\\" + fileName);
+			File file = new File(CURR_IMAGE_REPO_PATH + "//" + fileName);
 			if (mFile.getSize() != 0) { // File Null Check
 				if (!file.exists()) {
 					if (file.getParentFile().mkdirs()) {
 						file.createNewFile();
 					}
 				}
-				mFile.transferTo(new File(CURR_IMAGE_REPO_PATH + "\\" + "temp" + "\\" + originalFileName));
+				mFile.transferTo(new File(CURR_IMAGE_REPO_PATH + "//" + "temp" + "//" + originalFileName));
 			}
 		}
 		return fileList;

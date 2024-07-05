@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/baseLayout}"
+	layout:fragment="body">
+
+<head>
+	<title>회원관리</title>
+</head>
+
+<body>
+	<th:block th:replace="~{layout/adminLayout :: adminLayoutFragment}"></th:block>
+
+	<div class="detail_box">
+		<h2>회원관리</h2>
+		<form name="frm_mod_member" id="admin_member">
+			<div>
+				<a href="javascript:search_order_history('today')" class="badge">오늘</a>
+				<a href="javascript:search_order_history('one_month')" class="badge">1개월</a>
+				<a href="javascript:search_order_history('two_month')" class="badge">2개월</a>
+				<a href="javascript:search_order_history('three_month')" class="badge">3개월</a>
+				<a href="javascript:search_order_history('six_month')" class="badge">6개월</a>
+			</div>
+
+			<div>
+				<table class="admin_member_table">
+					<tr>
+						<td>회원ID</td>
+						<td>회원정보</td>
+						<td>배송정보</td>
+						<td>가입일/탈퇴여부</td>
+						<td>-</td>
+					</tr>
+
+					<th:block th:if="${#lists.isEmpty(member_list)}">
+						<tr>
+							<td colspan="5">조회된 회원이 없습니다.</td>
+						</tr>
+
+					</th:block>
+					<th:block th:unless="${#lists.isEmpty(member_list)}">
+						<th:block th:each="item : ${member_list}">
+							<tr>
+								<td th:text="${item.member_id}"></td>
+								<td>
+									<div>
+										<span>이름</span>
+										<input type="text" th:value="${item.member_name }" name="member_name"
+											placeholder="이름" readonly>
+									</div>
+									<div>
+										<span>아이디</span>
+										<input type="text" th:value="${item.member_id }" name="member_id" placeholder="아이디"
+											readonly>
+									</div>
+									<div>
+										<span>비밀번호</span>
+										<input type="text" th:value="${item.member_pwd }" name="member_pwd"
+											placeholder="비밀번호" readonly>
+									</div>
+									<div>
+										<span>휴대전화</span>
+										<input type="text" th:value="${item.hp1 }" name="hp1" placeholder="휴대전화" readonly>
+									</div>
+								</td>
+								<td>
+									<div>
+										<span>우편번호</span>
+										<input type="text" placeholder="우편번호" th:value="${item.zipcode }" name="zipcode"
+											readonly>
+									</div>
+									<div>
+										<span>주소</span>
+										<input type="text" placeholder="주소" th:value="${item.address }" name="address"
+											readonly>
+									</div>
+									<div>
+										<span>상세주소</span>
+										<input type="text" placeholder="상세주소" th:value="${item.subAddress }"
+											name="subAddress" readonly>
+									</div>
+								</td>
+								<td>
+									<th:block th:if="${#strings.equals(item.del_yn,'N')}">
+										<span>활동중</span>
+									</th:block>
+									<th:block th:unless="${#strings.equals(item.del_yn,'N')}">
+										<span>탈퇴</span>
+									</th:block>
+									
+									<br><th:block th:text="${item.joinDate}"></th:block>
+								</td>
+								<td>
+									<button th:onclick="fn_delete_member([[${item.member_id}]],'Y')">탈퇴</button>
+								</td>
+							</tr>
+
+						</th:block>
+					</th:block>
+
+				</table>
+			</div>
+		</form>
+	</div>
+
+
+
+	<script>
+
+		function search_order_history(fixedSearchPeriod) {
+			var formObj = document.createElement("form");
+			var i_fixedSearch_period = document.createElement("input");
+			i_fixedSearch_period.name = "fixedSearchPeriod";
+			i_fixedSearch_period.value = fixedSearchPeriod;
+			formObj.appendChild(i_fixedSearch_period);
+			document.body.appendChild(formObj);
+			formObj.method = "get";
+			formObj.action = "/admin/member/adminMemberMain.do";
+			formObj.submit();
+		}
+
+		//버튼식 상품조회 badge url에 따른 style변경
+		if (window.location.href.includes("fixedSearchPeriod")) {
+			const badges = document.querySelectorAll(".badge");
+			for (b of badges) {b.classList.remove("active");}
+			//각 값이 url에 들어있을 경우 active된다.
+			if (window.location.href.includes("today")) {
+				badges[0].classList.add("active");
+			} else if (window.location.href.includes("one_month")) {
+				badges[1].classList.add("active");
+			} else if (window.location.href.includes("two_month")) {
+				badges[2].classList.add("active");
+			} else if (window.location.href.includes("three_month")) {
+				badges[3].classList.add("active");
+			} else if (window.location.href.includes("six_month")) {
+				badges[4].classList.add("active");
+			}
+		}
+
+
+		function fn_delete_member(member_id, del_yn) {
+			var member_id = member_id;
+			var del_yn = del_yn;
+			//confirm단계를 거치고 사용자가 취소를 누를경우 삭제를 취소한다.
+			var answer = confirm("해당회원을 삭제하시겠습니까?");
+			if (answer == true) {
+				$.ajax({
+					type: "post",
+					async: false,
+					url: "/mypage/deleteMember.do",
+					data: {
+						member_id: member_id,
+						del_yn: del_yn
+					},
+					success: function (data, textStatus) {
+						if (data.trim() == 'delete_success') {
+							alert("삭제되었습니다.");
+							location.href = "/admin/member/adminMemberMain.do";
+						} else if (data.trim() == 'failed') {
+							alert("다시 시도해 주세요.");
+						}
+					},
+					error: function (data, textStatus) {
+						alert("에러가 발생했습니다." + data);
+					},
+					complete: function (data, textStatus) { }
+				});
+			}
+		}
+
+
+
+	</script>
+
+
+
+
+
+</body>
+
+</html>

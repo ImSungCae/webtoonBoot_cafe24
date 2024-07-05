@@ -154,7 +154,6 @@ public class MyPageControllerImpl extends BaseController implements MyPageContro
 	public ResponseEntity deleteMember(@RequestParam("member_id") String member_id, HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 		myPageService.deleteMember(member_id);
-		
 		String message = null;
 		ResponseEntity resEntity = null;
 		HttpHeaders responHeaders = new HttpHeaders();

@@ -31,7 +31,7 @@ import jakarta.servlet.http.HttpSession;
 @Controller("adminGoodsController")
 @RequestMapping(value = "/admin/goods")
 public class AdminGoodsControllerImpl extends BaseController implements AdminGoodsController {
-	private static final String CURR_IMAGE_REPO_PATH = "C:\\webtoonfriends_repo\\file_repo";
+	private static final String CURR_IMAGE_REPO_PATH = "/lschmhj/tomcat/webapps/file_repo";
 	@Autowired
 	private AdminGoodsService adminGoodsService;
 
@@ -122,10 +122,10 @@ public class AdminGoodsControllerImpl extends BaseController implements AdminGoo
 						
 						//temp안에 imageFileName 이름으로 파일 생성,
 						imageFileName = imageFileVO.getFileName();
-						File srcFile = new File(CURR_IMAGE_REPO_PATH + "\\" + "temp" + "\\" + imageFileName);
+						File srcFile = new File(CURR_IMAGE_REPO_PATH + "//" + "temp" + "//" + imageFileName);
 						
 						//이후 goods_id가 폴더명인 폴더를 하나 만들어 
-						File destDir = new File(CURR_IMAGE_REPO_PATH + "\\" + goods_id);
+						File destDir = new File(CURR_IMAGE_REPO_PATH + "//" + goods_id);
 						
 						//이동한다.
 						FileUtils.moveFileToDirectory(srcFile, destDir, true);
@@ -143,7 +143,7 @@ public class AdminGoodsControllerImpl extends BaseController implements AdminGoo
 				if (imageFileList != null && imageFileList.size() != 0) {
 					for (ImageFileVO imageFileVO : imageFileList) {
 						imageFileName = imageFileVO.getFileName();
-						File srcFile = new File(CURR_IMAGE_REPO_PATH + "\\" + "temp" + "\\" + imageFileName);
+						File srcFile = new File(CURR_IMAGE_REPO_PATH + "//" + "temp" + "//" + imageFileName);
 						//만들어진 temp경로안의 파일들을 삭제한다.
 						srcFile.delete();
 					}
@@ -230,9 +230,9 @@ public class AdminGoodsControllerImpl extends BaseController implements AdminGoo
 					// 리스트와 파일정보를 잘 받았다면
 					imageFileName = imageFileVO.getFileName();
 					// temp 임시폴더 안에 파일생성 imageFileName
-					File srcFile = new File(CURR_IMAGE_REPO_PATH + "\\" + "temp" + "\\" + imageFileName);
+					File srcFile = new File(CURR_IMAGE_REPO_PATH + "//" + "temp" + "//" + imageFileName);
 					// 이름이 goods_id인 폴더로 덮어쓰기 copyFileToDirectory
-					File destDir = new File(CURR_IMAGE_REPO_PATH + "\\" + goods_id);
+					File destDir = new File(CURR_IMAGE_REPO_PATH + "//" + goods_id);
 					FileUtils.copyFileToDirectory(srcFile, destDir);
 				}
 
@@ -250,7 +250,7 @@ public class AdminGoodsControllerImpl extends BaseController implements AdminGoo
 			if (imageFileList != null && imageFileList.size() != 0) {
 				for (ImageFileVO imageFileVO : imageFileList) {
 					imageFileName = imageFileVO.getFileName();
-					File srcFile = new File(CURR_IMAGE_REPO_PATH + "\\" + "temp" + "\\" + imageFileName);
+					File srcFile = new File(CURR_IMAGE_REPO_PATH + "//" + "temp" + "//" + imageFileName);
 					// temp임시 폴더에 생성된 파일들을 삭제한다.
 					srcFile.delete();
 				}
@@ -303,8 +303,8 @@ public class AdminGoodsControllerImpl extends BaseController implements AdminGoo
 				adminGoodsService.addNewGoodsImage(imageFileList);
 				for (ImageFileVO imageFileVO : imageFileList) {
 					imageFileName = imageFileVO.getFileName();
-					File srcFile = new File(CURR_IMAGE_REPO_PATH + "\\" + "temp" + "\\" + imageFileName);
-					File destDir = new File(CURR_IMAGE_REPO_PATH + "\\" + goods_id);
+					File srcFile = new File(CURR_IMAGE_REPO_PATH + "//" + "temp" + "//" + imageFileName);
+					File destDir = new File(CURR_IMAGE_REPO_PATH + "//" + goods_id);
 					FileUtils.moveFileToDirectory(srcFile, destDir, true);
 				}
 			}
@@ -312,7 +312,7 @@ public class AdminGoodsControllerImpl extends BaseController implements AdminGoo
 			if (imageFileList != null && imageFileList.size() != 0) {
 				for (ImageFileVO imageFileVO : imageFileList) {
 					imageFileName = imageFileVO.getFileName();
-					File srcFile = new File(CURR_IMAGE_REPO_PATH + "\\" + "temp" + "\\" + imageFileName);
+					File srcFile = new File(CURR_IMAGE_REPO_PATH + "//" + "temp" + "//" + imageFileName);
 					srcFile.delete();
 				}
 			}
@@ -326,7 +326,7 @@ public class AdminGoodsControllerImpl extends BaseController implements AdminGoo
 			HttpServletResponse response) throws Exception {
 
 		adminGoodsService.deleteGoods(goods_id);
-		File folder = new File(CURR_IMAGE_REPO_PATH + "\\" + goods_id);
+		File folder = new File(CURR_IMAGE_REPO_PATH + "//" + goods_id);
 		try {
 			while (folder.exists()) {
 				File[] folder_list = folder.listFiles();

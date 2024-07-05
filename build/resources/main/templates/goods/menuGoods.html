@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" 
+	layout:decorate="~{layout/baseLayout}"
+	layout:fragment="body">
+
+<head>
+	<title>굿즈리스트</title>
+</head>
+<body>
+	<img class="banner" th:src="@{${'/image/main_banner_' + menuGoods + '.jpg'}}" />
+    <h4 class="goodsCount">상품 <span th:text="(${#lists.size(goodsList)})"></span></h4>
+    <div id="menuGoods">
+        <th:block th:if="${#lists.isEmpty(goodsList)}">
+            해당 카테고리에 상품이 없습니다.
+        </th:block>
+        <th:block th:if="${not #lists.isEmpty(goodsList)}">
+            <th:block th:each="item : ${goodsList}">
+                <a th:href="@{/goods/goodsDetail.do(goods_id=${item.goods_id})}">
+                    <img th:src="@{/thumbnails.do(goods_id=${item.goods_id},fileName=${item.goods_fileName})}" />
+                    <p th:text="${item.goods_title}"></p>
+					<p><span>&#8361;<span
+						th:text="${#numbers.formatInteger(item.goods_price, 3, 'COMMA')}"></span></span></p>                </a>
+            </th:block>
+        </th:block>
+    </div>
+</body>
+</html>

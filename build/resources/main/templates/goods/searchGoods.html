@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" 
+	layout:decorate="~{layout/baseLayout}"
+	layout:fragment="body">
+
+<head>
+	<title>검색 결과</title>
+</head>
+
+<body>
+	<div id="slide">
+		<ul>
+			<li><a th:href="@{/goods/menuGoods.do?menuGoods=화산귀환}"><img alt="배너1"
+						th:src="@{/image/main_banner_화산귀환.jpg}"></a></li>
+			<li><a th:href="@{/goods/menuGoods.do?menuGoods=물위의우리}"><img alt="배너2"
+						th:src="@{/image/main_banner_물위의우리.jpg}"></a></li>
+			<li><a th:href="@{/goods/menuGoods.do?menuGoods=언덕위의제임스}"><img alt="배너3"
+						th:src="@{/image/main_banner_언덕위의제임스.jpg}"></a></li>
+			<li><a th:href="@{/goods/menuGoods.do?menuGoods=바른연애길잡이}"><img alt="배너4"
+						th:src="@{/image/main_banner_바른연애길잡이.jpg}"></a></li>
+		</ul>
+
+		<a class="btn_left" data-direction="-1">
+			<img alt="왼쪽 슬라이드" th:src="@{/image/arrow_back.svg}">
+		</a>
+		<a class="btn_right" data-direction="1">
+			<img alt="오른쪽 슬라이드" th:src="@{/image/arrow_forward.svg}">
+		</a>
+		<div class="button"></div>
+	</div>
+
+	<div class="goods_box">
+		<h2><span th:text="${searchWord}"></span> 검색 결과</h2>
+		<div class="goods_box_list">
+			<th:block th:if="${#lists.isEmpty(goodsList)}">
+				해당 검색 결과에 대한 상품이 없습니다.
+			</th:block>
+			<th:block th:unless="${#lists.isEmpty(goodsList)}">
+				<th:block th:each="item : ${goodsList}">
+					<a
+						th:href="@{/goods/goodsDetail.do?goods_id=${item.goods_id}}">
+						<img
+						th:src="@{/thumbnails.do(goods_id=${item.goods_id},fileName=${item.goods_fileName})}">
+						<p th:text="${item.goods_title}"></p>
+						<p>
+							<span th:text="${#numbers.formatInteger(item.goods_price,3,'COMMA')} + '&#8361;'"></span>
+						</p>
+					</a>
+				</th:block>
+				
+			</th:block>
+		</div>
+	</div>
+
+
+</body>
+
+</html>

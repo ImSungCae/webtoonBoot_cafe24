@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lagn="ko" xmlns:th="http://www.thymeleaf.org" th:fragment="adminLayoutFragment">
+
+<!-- 인포레이아웃 컨테이너  -->
+<div class="container">
+	<div class="mypageBox">
+		관리자
+	</div>
+	<div class="mypageBox">
+		<h5>상품</h5>
+
+		<!-- 배송 준비중 카운트 -->
+		<span th:text="${session.goodsLen }"></span>
+		<!-- 배송 준비중 카운트 -->
+
+	</div>
+	<div class="mypageBox">
+		<h5>회원</h5>
+
+		<!-- 배송중 카운트 -->
+		<span th:text="${session.membersLen }"></span>
+		<!-- 배송중 카운트 -->
+
+	</div>
+
+	<div class="mypageBox">
+		<h5>주문건수</h5>
+
+		<!-- 배송 완료 카운트 -->
+		<span th:text="${session.ordersLen }"></span>
+		<!-- 배송 완료 카운트 -->
+
+	</div>
+	<div class="mypageBox" id="totPrice_box">
+		<h5>총 매출</h5>
+
+		<!-- 총 매출 -->
+		<span th:text="${#numbers.formatInteger(session.totalSales,3,'COMMA')}"></span>
+		<!-- 총 매출 -->
+
+	</div>
+	
+	<!-- side 메뉴 -->
+	<div class="side">
+		<b>관리자</b><br>
+		<a th:href="@{/admin/goods/adminGoodsMain.do}">상품관리</a><br>
+		<a th:href="@{/admin/order/adminOrderMain.do}">주문/배송관리</a><br>
+		<a th:href="@{/admin/member/adminMemberMain.do}">회원관리</a>
+	</div>
+	<!-- side 메뉴 -->
+</div>
+<!-- 인포레이아웃 컨테이너  -->
+
+</html>
