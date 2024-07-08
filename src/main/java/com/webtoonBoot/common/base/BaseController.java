@@ -21,7 +21,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 public class BaseController {
 
-	
+//	cafe24 배포 파일 경로
 	private static final String CURR_IMAGE_REPO_PATH = "/lschmhj/tomcat/webapps/file_repo";
 
 	@RequestMapping(value = "/*.do", method = { RequestMethod.POST, RequestMethod.GET })
