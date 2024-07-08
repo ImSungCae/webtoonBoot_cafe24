@@ -1,7 +1,7 @@
 # webtoonBoot_cafe24
 
 <div align="center">
- 	<h3>:pray: 소개</h3>
+ 	<h3>:pray: Introduce</h3>
 	<p>웹툰 굿즈샵 프로젝트 카페24 호스팅 배포</p>
 	<h3>:link: http://lschmhj.cafe24.com</h3>
 <div>
