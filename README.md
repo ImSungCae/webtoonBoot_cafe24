@@ -7,8 +7,10 @@
 
 <div align="center">
 	<h3>:newspaper: Project</h3>
-	1. 제작기간
-	| 2024.05.09 ~ 07.05 (12일)
+	**1. 제작기간**
+	
+	
+ 	2024.05.09 ~ 07.05 (12일)
 </div>
  
 <div align="center">
