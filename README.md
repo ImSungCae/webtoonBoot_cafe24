@@ -19,11 +19,8 @@
 </div>
 
 <div align="center">
-	<h3>
-		URL 주소 :
-		http://lschmhj.cafe24.com
+	<h3>URL 주소 : http://lschmhj.cafe24.com</h3>
 		
-	</h3>
 
 </div>
 
