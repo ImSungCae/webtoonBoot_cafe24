@@ -4,8 +4,9 @@
  	<h3>:pray: 소개</h3>
 	<p>웹툰 굿즈샵 프로젝트 카페24 호스팅 배포</p>
 	<h3>:link: http://lschmhj.cafe24.com</h3>
-
-	<div>
+<div>
+	
+<div align="center">
 	<h3>:books: Use Skills </h3>
  	<img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" />
         <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" />
@@ -19,7 +20,6 @@
 	<img src="https://img.shields.io/badge/gradle-02303A?style=for-the-badge&logo=gradle&logoColor=white"> 
 	<img src="https://img.shields.io/badge/thymeleaf-005F0F?style=for-the-badge&logo=thymeleaf&logoColor=white"> 
  
- 	</div>
 </div>
   
  
